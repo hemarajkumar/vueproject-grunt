@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"/>
+	<meta HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge,chrome=1"/>
+	<meta name="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"/>
+	<meta name="robots" CONTENT="index,follow"/>
+</footer>
+</head>
+
+<body class="homepage">
+  <header class="site-header">
+  <article>
+    <h1 class="site-header__title">Carousel Test</h1>
+    <h4 class="site-header__my-details">Rajkumar Manoharan<br/>Mobile: 07770711892</h4>
+  </article>
+  </header>
+
+  <!-- carousel Data loaded from scripts.js 
+  carouselobj defined in scripts.js.
+  vue js code updated in the scripts.js for rendering carousel content.
+  _ui-src/web/webroot/js/theme/scripts.js
+  -->
+
+
+  <section id='carouselVueData'>
+    <carousel-list :carouselobj="carouselobj"> </carousel-list>
+  </section>
+
+  <footer>
+    <script TYPE="text/javascript" SRC="web/webroot/_ui/js/carouselproject.js"></script>
+    <link rel="stylesheet" type="text/css" href="web/webroot/_ui/css/common/plugin.css?v=1">
+    <link rel="stylesheet" type="text/css" href="web/webroot/_ui/css/theme/main.css?v=1">
+  </footer>
+</body>
+</html>

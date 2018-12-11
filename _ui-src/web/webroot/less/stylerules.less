@@ -1,0 +1,36 @@
+//
+// extend classes
+// --------------------------------------------------
+
+ .next-prev-button-style-mobile {
+ 	position: absolute;
+	display: inline-block;
+	text-indent: -9999px;
+	width: 30px;
+	height: 50px;
+	top: 34%;
+	background: url(../../images/arrow.svg);
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-color: @light-green;
+	opacity: 0.8;
+	@media only screen and (min-width: @media-min-tablet) {
+		background-size: 26px;
+		width: 45px;
+		height: 80px;
+	}
+ }
+
+ .next-prev-button-style-desktop {
+ 	position: relative;
+	text-indent: initial;
+	background: none;
+	overflow: initial;
+  	padding: 10px 20px;
+  	font-weight: bold;
+  	color: @white;
+  	background-color: @color-blue;
+  	border-radius: 2px;
+  	width: 100%;
+  	height: auto;
+ }
