@@ -33,6 +33,86 @@
   width: 100%;
   height: auto;
 }
+ul li {
+  list-style-type: none;
+}
+.bs-docs-nav .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.bs-docs-nav .navbar-toggle:focus {
+  background-color: #fff;
+}
+.bs-docs-nav:hover .icon-bar {
+  background-color: #000;
+}
+.bs-docs-nav:focus {
+  background-color: #fff;
+}
+.navbar {
+  background: #000;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.navbar .headerNav {
+  position: relative;
+}
+.navbar .navbar-brand {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.navbar .navbar-brand:hover {
+  color: #fff;
+}
+.navbar .assesmentHeading span {
+  font-size: 16px;
+  font-weight: normal;
+  color: #ffffff;
+  display: block;
+}
+.navbar .assesmentHeading span.name {
+  font-size: 14px;
+}
+.navbar .assesmentHeading .logo {
+  float: left;
+}
+.navbar .assesmentHeading .name {
+  float: right;
+}
+.navbar .miniCart {
+  color: #fff;
+  height: 30px;
+  margin-top: 20px;
+  width: auto;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+.navbar .miniCart a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+.navbar .miniCart a:hover {
+  text-decoration: none;
+}
+.navbar .miniCart .price {
+  margin-right: 2px;
+}
+ul.nav li a {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+}
+ul.nav li a:hover {
+  color: #000;
+  background-color: #fff;
+}
+ul.nav li a.active {
+  color: #000;
+  background-color: #fff;
+}
 .site-header {
   width: 100%;
   background-color: #eaeee7;
@@ -146,4 +226,145 @@
   .owl-nav .owl-prev .left:before {
     content: "Prev";
   }
+}
+.PLP-page h2 {
+  margin: 0px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;
+}
+.PLP-page .facetNavigation .facet {
+  border: 1px solid #999999;
+  min-height: 200px;
+}
+.PLP-page .paginationBar {
+  margin: 10px 0px;
+  min-height: 30px;
+  background-color: #ccc;
+}
+.PLP-page .paginationBar .title {
+  float: left;
+  padding: 5px 0px 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+.PLP-page .productList {
+  border: 2px solid #000;
+  min-height: 380px;
+  padding: 2px;
+  float: left;
+}
+.PLP-page .productList .product .product-data {
+  background-color: #ccc;
+  min-height: 180px;
+}
+.PLP-page .productList .product .product-data .thumb {
+  padding: 5px;
+  margin-top: 4px;
+}
+.PLP-page .productList .product .product-data .details {
+  margin-top: 5px;
+}
+.PLP-page .productList .product .product-data .details li {
+  float: left;
+  width: 100%;
+}
+.PLP-page .productList .product .product-data .details li .outofstock {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ea1024;
+}
+.PLP-page .productList .product .product-data .details li span.code {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.PLP-page .productList .product .product-data .details li.name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 5px;
+}
+.PLP-page .productList .product .product-data .details li a {
+  text-decaration: none;
+  color: #000;
+}
+.PLP-page .productList .product .product-data .details li a:hover {
+  text-decoration: none;
+}
+.PLP-page .productList .product .product-data .details li.price {
+  font-size: 14px;
+  font-weight: normal;
+  color: #000000;
+  margin-bottom: 5px;
+}
+.PLP-page .productList .product .product-data .details li.price .was {
+  margin-right: 5px;
+  color: #ea1024;
+  text-decoration: line-through;
+}
+.PLP-page .productList .product .product-data .details li.inputs {
+  margin: 5px 0px;
+}
+.PLP-page .productList .product .product-data .details li.inputs input.qty {
+  width: 39px;
+  float: left;
+  padding: 2px 5px;
+  text-align: center;
+}
+.PLP-page .productList .product .product-data .details li.inputs button.btn {
+  width: 90px;
+  float: left;
+  font-size: 12px;
+  margin: 2px 0px 0px 10px;
+  padding: 6px 5px;
+}
+.PLP-page .productList .product .product-data .details li.inputs span.errorMsg {
+  color: #f60712;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 3px;
+  float: left;
+}
+.plp-products {
+  float: left;
+  margin-top: 20px;
+}
+.plp-products__name {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+.plp-products__product {
+  float: left;
+  width: 320px;
+  height: auto;
+  margin-bottom: 20px;
+  position: relative;
+}
+.plp-products__img-container {
+  float: left;
+  width: 320px;
+  max-height: 320px;
+}
+.plp-products__img-container--link {
+  float: left;
+  width: 320px;
+  max-width: 320px;
+  max-height: 320px;
+  height: 320px;
+}
+.plp-products__img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
+}
+.roundelProduct {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 80px;
+  height: 80px;
 }

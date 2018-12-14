@@ -1,0 +1,124 @@
+//
+// Assessment Project
+// --------------------------------------------------
+
+.PLP-page {
+    h2{
+        margin: 0px;
+        .fontsizerule1 (@size: 22px, @weight: bold, @color:#000);
+    }
+    .facetNavigation {
+        .facet {
+            border: 1px solid #999999;
+            min-height: 200px;
+        }
+    }
+    .paginationBar {
+        margin: 10px 0px;
+        min-height:30px;
+        background-color: #ccc;
+        .title {
+            float: left;
+            padding: 5px 0px 5px 10px;
+            .fontsizerule1 (@size: 14px, @weight: bold, @color:#000);
+        }
+    }
+    .productList {
+        border: 2px solid #000;
+        min-height:380px;
+        padding: 2px;
+        float: left;
+        .product{
+            .product-data {
+                background-color: #ccc;
+                 min-height:180px;
+                 .thumb {
+                     padding: 5px;
+                     margin-top:4px;
+                 }
+                 .details {margin-top:5px;
+                    li{
+                        float: left;
+                        width: 100%;
+                        .outofstock {
+                             .fontsizerule1 (@size: 14px, @weight: bold, @color:#ea1024);
+                        }
+                        span.code {font-weight: bold; margin-bottom:5px;}
+                        &.name {
+                            .fontsizerule1 (@size: 14px, @weight: bold, @color:#000);
+                            margin-bottom: 5px;
+                        }
+                        a {
+                            text-decaration: none;
+                            color: #000;
+                            &:hover {text-decoration: none;}
+                        }
+                        &.price {
+                             .fontsizerule1 (@size: 14px, @weight: normal, @color:#000);
+                            margin-bottom: 5px;
+                            .was {
+                                margin-right: 5px;
+                                color: #ea1024;
+                                text-decoration: line-through;
+                            }
+                        }
+                        &.inputs {
+                            margin: 5px 0px;
+                            input.qty {width:39px; float: left; padding:2px 5px; text-align: center;}
+                            button.btn {width:90px; float: left; font-size:12px; margin:2px 0px 0px 10px; padding: 6px 5px;}
+                            span.errorMsg{
+                                color:#f60712; font-weight: bold; font-size: 12px;
+                                margin-top:3px;
+                                float: left;
+                                }
+                        }
+                    }
+                 }
+            }
+        }
+    }
+}
+
+.plp-products {
+  float: left;
+  margin-top: 20px;
+  &__name {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  &__product {
+    float: left;
+    width: 320px;
+    height: auto;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  &__img-container {
+    float: left;
+    width: 320px;
+    max-height: 320px;
+    &--link {
+      float: left;
+      width: 320px;
+      max-width: 320px;
+      max-height: 320px;
+      height:320px;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    margin: 0 auto;
+  }
+}
+
+.roundelProduct {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 80px;
+  height: 80px;
+}

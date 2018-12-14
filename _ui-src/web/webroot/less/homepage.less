@@ -1,3 +1,80 @@
+//
+// Assessment Project
+// --------------------------------------------------
+
+ul li{
+    list-style-type: none;
+}
+.bs-docs-nav {
+    .navbar-toggle {
+        .icon-bar {background-color: #fff;}
+        &:focus {
+             background-color: #fff;
+        }
+    }
+    &:hover {
+        .icon-bar {
+            background-color: #000;
+        }
+    }
+    &:focus {
+        background-color: #fff;
+    }
+}
+
+.navbar {
+    background: #000;
+    width: 100%;
+    margin-bottom: 20px;
+    .headerNav {position: relative;}
+    .navbar-brand {
+        .fontsizerule1 (@size: 16px, @weight: bold, @color:#fff);
+        &:hover {
+            color: #fff;
+        }
+    }
+    .assesmentHeading {
+        span {
+            .fontsizerule1 (@size: 16px, @weight: normal, @color:#fff);
+            display: block;
+            &.name {font-size:14px;}
+        }
+        .logo{float: left;}
+        .name {float: right;}
+    }
+    .miniCart {
+        color:#fff; height:30px; margin-top:20px; width:auto;
+        position: absolute; right:0px;bottom: 0px;
+        a{
+            .fontsizerule1 (@size: 14px, @weight: bold, @color:#fff);
+            text-decoration: none;
+            &:hover {text-decoration: none;}
+        }
+        .price {margin-right: 2px;}
+    }
+}
+
+ul.nav li a {
+    .fontsizerule1 (@size: 13px, @weight: bold, @color:#fff);
+    &:hover {
+        color: #000;
+        background-color: #fff;
+    }
+    &.active {
+        color: #000;
+        background-color: #fff;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 .site-header {
 	width: 100%;
 	background-color: @header-bg;
@@ -60,7 +137,7 @@
 	}
 }
 
-.owl-nav { 
+.owl-nav {
 	.owl-prev {
 		.left {
 			&:extend(.next-prev-button-style-mobile);

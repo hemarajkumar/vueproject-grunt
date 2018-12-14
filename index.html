@@ -8,26 +8,260 @@
 </head>
 
 <body class="homepage">
-  <header class="site-header">
+  <!--header class="site-header">
   <article>
     <h1 class="site-header__title">Carousel Test</h1>
     <h4 class="site-header__my-details">Rajkumar Manoharan<br/>Mobile: 07770711892</h4>
   </article>
-  </header>
+</header -->
 
-  <!-- carousel Data loaded from scripts.js 
-  carouselobj defined in scripts.js.
-  vue js code updated in the scripts.js for rendering carousel content.
-  _ui-src/web/webroot/js/theme/scripts.js
-  -->
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container nopad headerNav">
+   <div class="navbar-header nomargin">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="javascript:void(0);" class="navbar-brand js-category" data-category="all">All Products</a>
+    </div>
 
-
-  <section id='carouselVueData'>
+		<nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+				<div class="" id="menuBlock">
+							<menu-list :menuobj="menuobj"> </menu-list>
+					</div>
+	    </nav>
+  </div>
+</header>
+<div id="vueData">
+  <section>
+		<!-- button v-on:click="greet">Greet</button -->
+		<!-- carousel data
     <carousel-list :carouselobj="carouselobj"> </carousel-list>
+		 -->
+
+		 <div class="contentDiv js-productListing" style="">
+	<div class="container">
+		<div class="row margin10top plp-products">
+				<div id="ProductLists" class="clearfix col-xs-12">
+					<product-list :productlistobj="productlistobj"> </product-list>
+			<!-- div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat01_01">
+										<img src="web/webroot/_ui/images/shoe1.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<span class="plp-products__name">Blair Black Leather Ankle Boots</span>
+						<div class="roundelProduct" style="background-image: url(web/webroot/_ui/images/roundelbg.png)"></div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat01_02">
+										<img src="web/webroot/_ui/images/shoe2.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Mary-Jane Green Velvet Flats</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat01_03">
+										<img src="web/webroot/_ui/images/shoe3.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Sersha Navy Croc Effect Closed Courts</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat02_01">
+										<img src="web/webroot/_ui/images/clothing1.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Elspeth Red Dress</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat02_02">
+										<img src="web/webroot/_ui/images/clothing2.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Ellora Blue Silk Culotte Jumpsuit</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat02_03">
+										<img src="web/webroot/_ui/images/clothing3.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Adriana Red Skirt</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat03_01">
+										<img src="web/webroot/_ui/images/handbags1.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Melanie Taupe Black Leather Shoulder Bag</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat03_02">
+										<img src="web/webroot/_ui/images/handbags2.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Brooke Navy Tote Bag</span>
+							<div class="roundelProduct" style="background-image: url(web/webroot/_ui/images/roundelbg.png)"></div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat03_03">
+										<img src="web/webroot/_ui/images/handbags3.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Maeve Black Leather Shoulder Bag</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat04_01">
+										<img src="web/webroot/_ui/images/accessories1.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Penelope Tangerine Croc Effect Purse</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat04_02">
+										<img src="web/webroot/_ui/images/accessories2.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Porthia Wine Croc Effect Card Holder</span>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat04_03">
+										<img src="web/webroot/_ui/images/accessories3.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Indi Leopard Print Cosmetic Bag</span>
+							<div class="roundelProduct" style="background-image: url(web/webroot/_ui/images/roundelbg.png)"></div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+					<div class="plp-products__product">
+						<div class="col-xs-12">
+							<div class="row">
+								<div class="plp-products__img-container">
+									<a class="js-navigatePdp" href="javascript:void(0);" data-product="cat04_04">
+										<img src="web/webroot/_ui/images/accessories4.jpg" class="plp-products__img">
+									</a>
+								</div>
+							</div>
+						</div>
+						<span class="plp-products__name">Zahara Blue Suede Belt</span>
+				</div>
+			</div -->
+
+
+
+		</div>
+		</div>
+	</div>
+</div>
+
   </section>
+</div>
+	<div id="example-2">
+	  <!-- `greet` is the name of a method defined below -->
+
+	</div>
+
 
   <footer>
-    <script TYPE="text/javascript" SRC="web/webroot/_ui/js/carouselproject.js"></script>
+    <script TYPE="text/javascript" SRC="web/webroot/_ui/js/project-script.js"></script>
     <link rel="stylesheet" type="text/css" href="web/webroot/_ui/css/common/plugin.css?v=1">
     <link rel="stylesheet" type="text/css" href="web/webroot/_ui/css/theme/main.css?v=1">
   </footer>

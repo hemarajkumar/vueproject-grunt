@@ -1,118 +1,17 @@
-var carouselList = {"lists":[
-{
-"Title":"Title 1",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
 
-
-{
-"Title":"Title 2",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-
-{
-"Title":"Title 3",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-
-{
-"Title":"Title 4",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-{
-"Title":"Title 5",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-{
-"Title":"Title 6",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-{
-"Title":"Title 7",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-{
-"Title":"Title 8",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-{
-"Title":"Title 9",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]},
-
-{
-"Title":"Title 10",
-"list":[
-{"imagetype":"desktop", "path":"web/webroot/_ui/images/homepageCarousel/image1-desktop.png"},
-{"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
-{"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
-]}
-]}
-
-Vue.component('carousel-list', {
-    template:"<div class='col-xs-12 nopad carousel'>" +
-      "<div class='owl-carousel owl-theme js-homePageCarousel' v-for='item in carouselobj'>" +
-        "<div class='item' v-for='slide in item'>" +
-          "<picture class='owl-item__picture'>" +
-            "<template v-for='picture in slide.list'>" +
-              "<source v-if='picture.imagetype == \"desktop\"' v-bind:srcset='picture.path' media='(min-width: 900px)'>" +
-              "<source v-if='picture.imagetype == \"tablet\"' v-bind:srcset='picture.path' media='(min-width: 641px) and (max-width: 899px)'>" +
-              "<source v-if='picture.imagetype == \"mobile\"' v-bind:srcset='picture.path' mmedia='(max-width: 640px)''>" +
-            "</template>" +
-            "<template v-for='image in slide.list'>" +
-              "<img v-if='image.imagetype == \"desktop\"' v-bind:src='image.path'>" +
-            "</template>" + 
-          "</picture>" + 
-          "<h4 class='owl-item__title'>{{ slide.Title }} </h4>" +
-        "</div>" + 
-      "</div>" +
-    "</div>",
-    props:['carouselobj']
-  })
-
-  new Vue({
-    el: "#carouselVueData",
+var carousel = new Vue({
+    el: "#vueData",
     data: {
       carouselobj :[],
+      menuobj: [],
+      productlistobj:[],
+      facets: []
     },
     mounted () {
-      // carouselList loaded from scripts.js under _ui-src/web/webroot/js/theme/
       this.carouselobj = carouselList;
-      setTimeout(function(){ 
+      this.productlistobj = productlList;
+      this.updateFacets(this.productlistobj);
+      setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
         margin:10,
@@ -133,5 +32,62 @@ Vue.component('carousel-list', {
         }
         });
       }, 200);
+    },
+    methods: {
+      updateFacets: function (obj) {
+    //    console.log(obj);
+    //  var nums = new Array(12,13,14,15)
+    //    nums.forEach(function(val,index) {
+    //      console.log(val)
+    //    });
+  //    console.log(obj['lists'].length);
+
+        for (let value of Object.values(obj['lists'])) {
+            for (let value1 of Object.values(value)) {
+            //    console.log(value1.constructor.toString().match(/function (\w*)/)[1]);
+                  for (let value2 of Object.values(value1)) {
+              //      console.log(value2); // John, then 30
+                }
+            }
+
+        //   console.log('here');
+        }
+
+      }
+    },
+    watch: {
+    //  productlistobj: function () {
+        //  console.log('test1........');
+        //  this.updateFacets();
+    //  }
     }
   })
+
+  var navapp = new Vue({
+      el: "#menuBlock",
+      data: {
+        menuobj: [],
+      },
+      mounted () {
+        this.menuobj = navmenu;
+      }
+  });
+
+/*
+  var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  // define methods under the `methods` object
+  methods: {
+    greet: function (event) {
+      // `this` inside methods points to the Vue instance
+      alert('Hello ' + this.name + '!')
+      // `event` is the native DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}) */

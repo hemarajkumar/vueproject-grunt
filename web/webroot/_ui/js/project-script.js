@@ -24763,7 +24763,16 @@ Vue.compile = compileToFunctions;
 return Vue;
 
 })));
-;var carouselList = {"lists":[
+;var navmenu = {"menulist":[
+  {"Title":"All Products", "id":"cat01"},
+  {"Title":"Mens Wear", "id":"cat02"},
+  {"Title":"Womens Wear", "id":"cat03"},
+  {"Title":"Hand Bages", "id":"cat04"},
+  {"Title":"Accessories", "id":"cat05"}
+]}
+
+
+var carouselList = {"lists":[
 {
 "Title":"Title 1",
 "list":[
@@ -24771,8 +24780,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
-
 {
 "Title":"Title 2",
 "list":[
@@ -24780,8 +24787,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
-
 {
 "Title":"Title 3",
 "list":[
@@ -24789,8 +24794,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
-
 {
 "Title":"Title 4",
 "list":[
@@ -24798,7 +24801,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
 {
 "Title":"Title 5",
 "list":[
@@ -24806,7 +24808,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
 {
 "Title":"Title 6",
 "list":[
@@ -24814,7 +24815,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
 {
 "Title":"Title 7",
 "list":[
@@ -24822,7 +24822,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
 {
 "Title":"Title 8",
 "list":[
@@ -24830,7 +24829,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
 {
 "Title":"Title 9",
 "list":[
@@ -24838,7 +24836,6 @@ return Vue;
 {"imagetype":"tablet", "path":"web/webroot/_ui/images/homepageCarousel/image1-tablet.png"},
 {"imagetype":"mobile", "path":"web/webroot/_ui/images/homepageCarousel/image1-mobile.png"}
 ]},
-
 {
 "Title":"Title 10",
 "list":[
@@ -24848,7 +24845,46 @@ return Vue;
 ]}
 ]}
 
-Vue.component('carousel-list', {
+
+var productlList = {"lists":[
+{
+"cat02":[
+{"id":"cat01_01", "name":"Shirt 1", "price":"15.00", "image":"web/webroot/_ui/images/shirt1.jpg", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"white"},
+{"id":"cat01_02", "name":"Shirt 2", "price":"18.00", "image":"web/webroot/_ui/images/shirt2.jpg", "color":"blue"},
+{"id":"cat01_03", "name":"Shirt 3", "price":"12.00", "image":"web/webroot/_ui/images/shirt3.jpg", "color":"blue"},
+{"id":"cat01_04", "name":"Shirt 4", "price":"34.00", "image":"web/webroot/_ui/images/shirt5.jpg", "color":"blue", "roundelImg":"web/webroot/_ui/images/roundelbg.png"},
+{"id":"cat01_04", "name":"Shirt 5", "price":"30.00", "image":"web/webroot/_ui/images/shirt6.jpg", "color":"pink"},
+{"id":"cat01_05", "name":"Shirt 6", "price":"40.00", "image":"web/webroot/_ui/images/shirt7.jpg", "color":"green"},
+{"id":"cat01_06", "name":"Shirt 7", "price":"30.00", "image":"web/webroot/_ui/images/shirt8.jpg", "color":"black", "roundelImg":"web/webroot/_ui/images/roundelbg.png"},
+{"id":"cat01_07", "name":"Shirt 8", "price":"42.00", "image":"web/webroot/_ui/images/shirt9.jpg", "color":"black"},
+{"id":"cat01_08", "name":"Shirt 10", "price":"10.00", "image":"web/webroot/_ui/images/shirt11.jpg", "color":"black"},
+{"id":"cat01_09", "name":"Shirt 9", "price":"20.00", "image":"web/webroot/_ui/images/shirt10.jpg", "color":"red"},
+{"id":"cat01_10", "name":"Shirt 11", "price":"14.00", "image":"web/webroot/_ui/images/shirt12.jpg", "color":"red"},
+{"id":"cat01_11", "name":"Shirt 12", "price":"24.00", "image":"web/webroot/_ui/images/shirt13.jpg", "color":"red"},
+{"id":"cat01_12", "name":"Shirt 13", "price":"35.00", "image":"web/webroot/_ui/images/shirt14.jpg", "color":"red", "roundelImg":"web/webroot/_ui/images/roundelbg.png"},
+{"id":"cat01_13", "name":"Shirt 14", "price":"22.00", "image":"web/webroot/_ui/images/shirt19.jpg", "color":"yellow"},
+{"id":"cat01_14", "name":"Shirt 15", "price":"28.00", "image":"web/webroot/_ui/images/shirt20.jpg", "color":"yellow", "roundelImg":"web/webroot/_ui/images/roundelbg.png"},
+{"id":"cat01_15", "name":"Shirt 16", "price":"26.00", "image":"web/webroot/_ui/images/shirt21.jpg", "color":"yellow"},
+{"id":"cat01_16", "name":"Shirt 17", "price":"21.00", "image":"web/webroot/_ui/images/shirt17.jpg", "color":"blue"},
+{"id":"cat01_16", "name":"Shirt 18", "price":"30.00", "image":"web/webroot/_ui/images/shirt22.jpg", "color":"black"}
+],
+"cat03":[
+{"id":"cat02_02", "name":"Ellora Blue Silk Culotte Jumpsuit", "image":"web/webroot/_ui/images/clothing2.jpg", "color":"blue"},
+{"id":"cat02_03", "name":"Adriana Red Skirt", "price":"19.00", "image":"web/webroot/_ui/images/clothing3.jpg", "color":"red"}
+],
+"cat04":[
+{"id":"cat03_01", "name":"Melanie Taupe Black Leather Shoulder Bag", "image":"web/webroot/_ui/images/handbags1.jpg", "color":"grey"},
+{"id":"cat03_02", "name":"Brooke Navy Tote Bag", "price":"30.00", "image":"web/webroot/_ui/images/handbags2.jpg", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"blue"},
+{"id":"cat03_03", "name":"Maeve Black Leather Shoulder Bag", "image":"web/webroot/_ui/images/handbags3.jpg", "color":"black"}
+],
+"cat05":[
+{"id":"cat04_01", "name":"Penelope Tangerine Croc Effect Purse", "price":"49.99", "image":"web/webroot/_ui/images/accessories1.jpg", "color":"brown"},
+{"id":"cat04_02", "name":"Porthia Wine Croc Effect Card Holder", "price":"39.99", "image":"web/webroot/_ui/images/accessories2.jpg", "color":"orange"},
+{"id":"cat04_03", "name":"Indi Leopard Print Cosmetic Bag", "price":"270.00", "image":"web/webroot/_ui/images/accessories3.jpg", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"brown"},
+{"id":"cat04_04", "name":"Zahara Blue Suede Belt", "price":"540.00", "image":"web/webroot/_ui/images/accessories4.jpg", "color":"blue"},
+]
+}]}
+;Vue.component('carousel-list', {
     template:"<div class='col-xs-12 nopad carousel'>" +
       "<div class='owl-carousel owl-theme js-homePageCarousel' v-for='item in carouselobj'>" +
         "<div class='item' v-for='slide in item'>" +
@@ -24860,24 +24896,57 @@ Vue.component('carousel-list', {
             "</template>" +
             "<template v-for='image in slide.list'>" +
               "<img v-if='image.imagetype == \"desktop\"' v-bind:src='image.path'>" +
-            "</template>" + 
-          "</picture>" + 
+            "</template>" +
+          "</picture>" +
           "<h4 class='owl-item__title'>{{ slide.Title }} </h4>" +
-        "</div>" + 
+        "</div>" +
       "</div>" +
     "</div>",
     props:['carouselobj']
   })
 
-  new Vue({
-    el: "#carouselVueData",
+
+Vue.component('menu-list', {
+  template:"<ul class='nav navbar-nav'>" +
+    "<li v-for='menu in menuobj.menulist'><a href=\"javascript:void(0);\" class='js-category'>{{ menu.Title }}</a></li>" +
+    "</ul>",
+  props:['menuobj']
+})
+
+
+Vue.component('product-list', {
+  template:"<div>" +
+    "<template  v-for='items in productlistobj.lists'>" +
+      "<template  v-for='item in items'>" +
+    "<div v-for='product in item' class=\"col-xs-4\">" +
+    "<div class=\"plp-products__product\">" +
+    "<div class=\"col-xs-12\"><div class=\"row\"><div class=\"plp-products__img-container\">" +
+    "<a class=\"js-navigatePdp\" href=\"javascript:void(0);\" data-product=\"cat01_01\">" +
+    "<img v-bind:srcset='product.image' class=\"plp-products__img\">" +
+    "</a>" +
+    "</div></div></div>" +
+    "<span class=\"plp-products__name\">{{ product.name }}</span>" +
+    "<div v-if=\"product.roundelImg\" class=\"roundelProduct\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
+    "</div></div>" +
+      "</template>" +
+    "</template>" +
+    "</div>",
+  props:['productlistobj']
+})
+;
+var carousel = new Vue({
+    el: "#vueData",
     data: {
       carouselobj :[],
+      menuobj: [],
+      productlistobj:[],
+      facets: []
     },
     mounted () {
-      // carouselList loaded from scripts.js under _ui-src/web/webroot/js/theme/
       this.carouselobj = carouselList;
-      setTimeout(function(){ 
+      this.productlistobj = productlList;
+      this.updateFacets(this.productlistobj);
+      setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
         margin:10,
@@ -24898,5 +24967,62 @@ Vue.component('carousel-list', {
         }
         });
       }, 200);
+    },
+    methods: {
+      updateFacets: function (obj) {
+    //    console.log(obj);
+    //  var nums = new Array(12,13,14,15)
+    //    nums.forEach(function(val,index) {
+    //      console.log(val)
+    //    });
+  //    console.log(obj['lists'].length);
+
+        for (let value of Object.values(obj['lists'])) {
+            for (let value1 of Object.values(value)) {
+            //    console.log(value1.constructor.toString().match(/function (\w*)/)[1]);
+                  for (let value2 of Object.values(value1)) {
+              //      console.log(value2); // John, then 30
+                }
+            }
+
+        //   console.log('here');
+        }
+
+      }
+    },
+    watch: {
+    //  productlistobj: function () {
+        //  console.log('test1........');
+        //  this.updateFacets();
+    //  }
     }
   })
+
+  var navapp = new Vue({
+      el: "#menuBlock",
+      data: {
+        menuobj: [],
+      },
+      mounted () {
+        this.menuobj = navmenu;
+      }
+  });
+
+/*
+  var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  // define methods under the `methods` object
+  methods: {
+    greet: function (event) {
+      // `this` inside methods points to the Vue instance
+      alert('Hello ' + this.name + '!')
+      // `event` is the native DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}) */
