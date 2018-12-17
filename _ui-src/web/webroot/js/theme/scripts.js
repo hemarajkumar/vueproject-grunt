@@ -1,16 +1,19 @@
-
-var carousel = new Vue({
+let urlParams = new URLSearchParams(window.location.search);
+let queryString = urlParams.get('search')
+var vueObject = new Vue({
     el: "#vueData",
     data: {
       carouselobj :[],
       menuobj: [],
-      productlistobj:[],
-      facets: []
+      facetObj: [],
+      facetlistobj: [],
+      plpobj: [],
+      plplistobj: []
     },
     mounted () {
       this.carouselobj = carouselList;
-      this.productlistobj = productlList;
-      this.updateFacets(this.productlistobj);
+      this.facetlistobj = this.updateFacets(productlList);
+      this.plplistobj =  this.updatePlpData(productlList);
       setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
@@ -20,46 +23,68 @@ var carousel = new Vue({
         dots: false,
         rewind:false,
         responsive:{
-            0:{
-                items:1
-            },
-            769:{
-                items:2
-            },
-            1000:{
-                items:5
-            }
+          0:{items:1},
+          769:{items:2},
+          1000:{items:5}
         }
         });
       }, 200);
     },
     methods: {
       updateFacets: function (obj) {
-    //    console.log(obj);
-    //  var nums = new Array(12,13,14,15)
-    //    nums.forEach(function(val,index) {
-    //      console.log(val)
-    //    });
-  //    console.log(obj['lists'].length);
-
+        let facetList = [];
+        let facetIdx = 0;
         for (let value of Object.values(obj['lists'])) {
-            for (let value1 of Object.values(value)) {
-            //    console.log(value1.constructor.toString().match(/function (\w*)/)[1]);
-                  for (let value2 of Object.values(value1)) {
-              //      console.log(value2); // John, then 30
-                }
+            if ((queryString == value.id) || (queryString == 'viewall' || queryString == null )){
+              let childObject = {};
+              childObject['Title'] = value.Title;
+              childObject['id'] = value.id;
+              for (let list of Object.values(value.list)) {
+                 if(facetList.includes(list.color) === false){
+                      facetList.push (list.color);
+                  }
+              }
+              childObject['colors'] = facetList;
+              this.facetObj[facetIdx] = childObject;
+              facetList = [];
+              facetIdx += 1;
+              childObject = [];
             }
-
-        //   console.log('here');
         }
+        return this.facetObj;
+      },
 
+      updatePlpData: function (obj) {
+        let facetList = [];
+        let facetIdx = 0;
+        let plpProducstArray = [];
+        for (let value of Object.values(obj['lists'])) {
+          if ((queryString == value.id) || (queryString == 'viewall' || queryString == null )){
+            let childObject = {};
+            childObject['Title'] = value.Title;
+            childObject['id'] = value.id;
+            for (let list of Object.values(value.list)) {
+              listobj = {};
+              listobj['id'] = list.id;
+              listobj['name'] = list.name;
+              listobj['price'] = list.price;
+              listobj['image'] = list.image;
+              listobj['roundelImg'] = list.roundelImg
+              listobj['color'] =  list.color
+              facetList.push(listobj);
+            }
+            childObject['list'] = facetList;
+            this.plpobj[facetIdx] = childObject;
+            facetList = [];
+            facetIdx += 1;
+            childObject = [];
+          }
+        }
+        return this.plpobj;
       }
     },
     watch: {
-    //  productlistobj: function () {
-        //  console.log('test1........');
-        //  this.updateFacets();
-    //  }
+      //
     }
   })
 
@@ -72,22 +97,3 @@ var carousel = new Vue({
         this.menuobj = navmenu;
       }
   });
-
-/*
-  var example2 = new Vue({
-  el: '#example-2',
-  data: {
-    name: 'Vue.js'
-  },
-  // define methods under the `methods` object
-  methods: {
-    greet: function (event) {
-      // `this` inside methods points to the Vue instance
-      alert('Hello ' + this.name + '!')
-      // `event` is the native DOM event
-      if (event) {
-        alert(event.target.tagName)
-      }
-    }
-  }
-}) */

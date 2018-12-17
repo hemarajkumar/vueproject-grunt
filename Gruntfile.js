@@ -60,7 +60,7 @@ module.exports = function(grunt) {
           ieCompat: false
         },
   			files: {
-  				"web/webroot/_ui/css/theme/main.css": "_ui-src/web/webroot/less/styles.less"
+  				"web/webroot/_ui/css/theme/project.css": "_ui-src/web/webroot/less/styles.less"
   			}
 		}
 	},
@@ -74,8 +74,9 @@ module.exports = function(grunt) {
               '_ui-src/web/webroot/js/common/bootstrap.min.js',
               '_ui-src/web/webroot/js/common/owl.carousel.js',
               '_ui-src/web/webroot/js/common/vue.js',
+              '_ui-src/web/webroot/js/common/lodash.js',
               '_ui-src/web/webroot/js/theme/jsondata.js',
-                '_ui-src/web/webroot/js/theme/component.js',
+              '_ui-src/web/webroot/js/theme/component.js',
               '_ui-src/web/webroot/js/theme/scripts.js'
               ],
         dest: 'web/webroot/_ui/js/project-script.js',

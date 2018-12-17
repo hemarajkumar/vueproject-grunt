@@ -1,9 +1,9 @@
 var navmenu = {"menulist":[
-  {"Title":"All Products", "id":"cat01"},
-  {"Title":"Mens Wear", "id":"cat02"},
-  {"Title":"Womens Wear", "id":"cat03"},
-  {"Title":"Hand Bages", "id":"cat04"},
-  {"Title":"Accessories", "id":"cat05"}
+  {"Title":"All Products",  "id":"viewall"},
+  {"Title":"Mens Wear", "id":"cat01"},
+  {"Title":"Womens Wear", "id":"cat02"},
+  {"Title":"Hand Bages", "id":"cat03"},
+  {"Title":"Accessories", "id":"cat04"}
 ]}
 
 
@@ -80,10 +80,11 @@ var carouselList = {"lists":[
 ]}
 ]}
 
-
 var productlList = {"lists":[
 {
-"cat02":[
+"Title":"Mens Wear",
+"id":"cat01",
+"list":[
 {"id":"cat01_01", "name":"Shirt 1", "price":"15.00", "image":"web/webroot/_ui/images/shirt1.jpg", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"white"},
 {"id":"cat01_02", "name":"Shirt 2", "price":"18.00", "image":"web/webroot/_ui/images/shirt2.jpg", "color":"blue"},
 {"id":"cat01_03", "name":"Shirt 3", "price":"12.00", "image":"web/webroot/_ui/images/shirt3.jpg", "color":"blue"},
@@ -102,20 +103,29 @@ var productlList = {"lists":[
 {"id":"cat01_15", "name":"Shirt 16", "price":"26.00", "image":"web/webroot/_ui/images/shirt21.jpg", "color":"yellow"},
 {"id":"cat01_16", "name":"Shirt 17", "price":"21.00", "image":"web/webroot/_ui/images/shirt17.jpg", "color":"blue"},
 {"id":"cat01_16", "name":"Shirt 18", "price":"30.00", "image":"web/webroot/_ui/images/shirt22.jpg", "color":"black"}
-],
-"cat03":[
+]},
+{
+"Title":"Womens Wear",
+"id":"cat02",
+"list":[
 {"id":"cat02_02", "name":"Ellora Blue Silk Culotte Jumpsuit", "image":"web/webroot/_ui/images/clothing2.jpg", "color":"blue"},
 {"id":"cat02_03", "name":"Adriana Red Skirt", "price":"19.00", "image":"web/webroot/_ui/images/clothing3.jpg", "color":"red"}
-],
-"cat04":[
+]},
+{
+"Title":"Hand Bages",
+"id":"cat03",
+"list":[
 {"id":"cat03_01", "name":"Melanie Taupe Black Leather Shoulder Bag", "image":"web/webroot/_ui/images/handbags1.jpg", "color":"grey"},
 {"id":"cat03_02", "name":"Brooke Navy Tote Bag", "price":"30.00", "image":"web/webroot/_ui/images/handbags2.jpg", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"blue"},
 {"id":"cat03_03", "name":"Maeve Black Leather Shoulder Bag", "image":"web/webroot/_ui/images/handbags3.jpg", "color":"black"}
-],
-"cat05":[
+]},
+{
+"Title":"Accessories",
+"id":"cat04",
+"list":[
 {"id":"cat04_01", "name":"Penelope Tangerine Croc Effect Purse", "price":"49.99", "image":"web/webroot/_ui/images/accessories1.jpg", "color":"brown"},
 {"id":"cat04_02", "name":"Porthia Wine Croc Effect Card Holder", "price":"39.99", "image":"web/webroot/_ui/images/accessories2.jpg", "color":"orange"},
 {"id":"cat04_03", "name":"Indi Leopard Print Cosmetic Bag", "price":"270.00", "image":"web/webroot/_ui/images/accessories3.jpg", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"brown"},
-{"id":"cat04_04", "name":"Zahara Blue Suede Belt", "price":"540.00", "image":"web/webroot/_ui/images/accessories4.jpg", "color":"blue"},
-]
-}]}
+{"id":"cat04_04", "name":"Zahara Blue Suede Belt", "price":"540.00", "image":"web/webroot/_ui/images/accessories4.jpg", "color":"blue"}
+]}
+]}

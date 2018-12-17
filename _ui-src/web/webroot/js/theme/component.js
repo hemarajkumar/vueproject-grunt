@@ -17,33 +17,48 @@ Vue.component('carousel-list', {
       "</div>" +
     "</div>",
     props:['carouselobj']
-  })
-
+})
 
 Vue.component('menu-list', {
   template:"<ul class='nav navbar-nav'>" +
-    "<li v-for='menu in menuobj.menulist'><a href=\"javascript:void(0);\" class='js-category'>{{ menu.Title }}</a></li>" +
+    "<li v-for='menu in menuobj.menulist'>" +
+    "<a v-if=\"menu.id != undefined\" v-bind:href=\"'plp.html?search='+menu.id\" class='js-category' v-bind:data-menuid='menu.id'>{{ menu.Title }}</a></li>" +
     "</ul>",
   props:['menuobj']
 })
 
-
 Vue.component('product-list', {
   template:"<div>" +
-    "<template  v-for='items in productlistobj.lists'>" +
-      "<template  v-for='item in items'>" +
-    "<div v-for='product in item' class=\"col-xs-4\">" +
-    "<div class=\"plp-products__product\">" +
-    "<div class=\"col-xs-12\"><div class=\"row\"><div class=\"plp-products__img-container\">" +
-    "<a class=\"js-navigatePdp\" href=\"javascript:void(0);\" data-product=\"cat01_01\">" +
-    "<img v-bind:srcset='product.image' class=\"plp-products__img\">" +
-    "</a>" +
-    "</div></div></div>" +
-    "<span class=\"plp-products__name\">{{ product.name }}</span>" +
-    "<div v-if=\"product.roundelImg\" class=\"roundelProduct\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
-    "</div></div>" +
-      "</template>" +
+    "<template  v-for='(item, itemindex) in plplistobj'>" +
+      "<div v-for='product in item.list' class=\"col-xs-4\">" +
+      "<div class=\"plp-products__product\">" +
+      "<div class=\"col-xs-12\">" +
+      "<div class=\"row\">" +
+      "<div class=\"plp-products__img-container\">" +
+      "<a class=\"js-navigatePdp plp-products__img-container--link\" href=\"javascript:void(0);\">" +
+      "<img v-bind:srcset='product.image' class=\"plp-products__img\">" +
+      "</a>" +
+      "</div></div></div>" +
+      "<span class=\"plp-products__name\">{{ product.name }}</span>" +
+      "<div v-if=\"product.roundelImg\" class=\"plp-products__roundel-product\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
+      "</div></div>" +
     "</template>" +
     "</div>",
-  props:['productlistobj']
+  props:['plplistobj']
+})
+
+Vue.component('facet-list', {
+  template:"<div>" +
+  "<template  v-for='(item, itemindex) in facetlistobj'>" +
+    "<div class=\"plp-facets__types\">" +
+        "<h3 class=\"plp-facets--title\">{{ item.Title }}</h3>" +
+        "<template  v-for='(colorname, colorindex) in item.colors'>" +
+          "<div class=\"plp-facets--option\">" +
+              "<input v-bind:id=\"(itemindex+1)+''+(colorindex+1)\" type=\"checkbox\" name=\"color\" value=\"Blue\"><label v-bind:for=\"(itemindex+1)+''+(colorindex+1)\" class=\"plp-facets--option-label\">{{ colorname }}</label><br/>" +
+          "</div>" +
+        "</template>" +
+        "</div>" +
+  "</template>" +
+    "</div>",
+  props:['facetlistobj']
 })
