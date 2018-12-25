@@ -30,7 +30,7 @@ Vue.component('menu-list', {
 Vue.component('product-list', {
   template:"<div>" +
     "<template  v-for='(item, itemindex) in plplistobj'>" +
-      "<div v-for='product in item.list' class=\"col-xs-4\">" +
+      "<div v-for='product in item.list' class=\"col-lg-4 col-xs-6 plp-products_list\">" +
       "<div class=\"plp-products__product\">" +
       "<div class=\"col-xs-12\">" +
       "<div class=\"row\">" +
@@ -42,6 +42,10 @@ Vue.component('product-list', {
       "<span class=\"plp-products__name\">{{ product.name }}</span>" +
       "<div class=\"plp-products__price\"><span class=\"plp-products__now-price\"><i v-if=\"product.wasprice\">Now - </i>£{{ product.price }}</span>" +
       "<span v-if=\"product.wasprice\" class=\"plp-products__was-price\">Was - <i>£{{ product.wasprice }}</i></span></div>" +
+      "<div class=\"plp-products__add-basket\"><div class=\"col-xs-12\"><div class=\"row\">" +
+      "<button v-if=\"product.quantity > 0\" class=\"btn btn-danger plp-products--add-basket-btn\">Add to Basket</button>" +
+      "<button v-if=\"product.quantity == 0\" class=\"btn btn-secondary plp-products--add-basket-btn\" disabled>Out of Stock</button>" +
+      "</div></div></div>" +
       "<div v-if=\"product.roundelImg\" class=\"plp-products__roundel-product\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
       "</div></div>" +
     "</template>" +

@@ -79,6 +79,7 @@ var vueObject = new Vue({
                 listobj['roundelImg'] = list.roundelImg;
                 listobj['color'] =  list.color;
                 listobj['wasprice'] =  list.wasprice;
+                listobj['quantity'] =  list.quantity;
                 facetList.push(listobj);
               }
               facetList = this.getSortedPlpList(facetList);
@@ -107,6 +108,7 @@ var vueObject = new Vue({
                       listobj['roundelImg'] = list.roundelImg;
                       listobj['color'] =  list.color;
                       listobj['wasprice'] =  list.wasprice;
+                      listobj['quantity'] =  list.quantity;
                       facetList.push(listobj);
                     }
                    }
