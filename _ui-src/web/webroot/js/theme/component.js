@@ -40,6 +40,8 @@ Vue.component('product-list', {
       "</a>" +
       "</div></div></div>" +
       "<span class=\"plp-products__name\">{{ product.name }}</span>" +
+      "<div class=\"plp-products__price\"><span class=\"plp-products__now-price\"><i v-if=\"product.wasprice\">Now - </i>£{{ product.price }}</span>" +
+      "<span v-if=\"product.wasprice\" class=\"plp-products__was-price\">Was - <i>£{{ product.wasprice }}</i></span></div>" +
       "<div v-if=\"product.roundelImg\" class=\"plp-products__roundel-product\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
       "</div></div>" +
     "</template>" +
@@ -54,11 +56,18 @@ Vue.component('facet-list', {
         "<h3 class=\"plp-facets--title\">{{ item.Title }}</h3>" +
         "<template  v-for='(colorname, colorindex) in item.colors'>" +
           "<div class=\"plp-facets--option\">" +
-              "<input v-bind:id=\"(itemindex+1)+''+(colorindex+1)\" type=\"checkbox\" name=\"color\" value=\"Blue\"><label v-bind:for=\"(itemindex+1)+''+(colorindex+1)\" class=\"plp-facets--option-label\">{{ colorname }}</label><br/>" +
+              "<input v-bind:id=\"(itemindex+1)+''+(colorindex+1)\" type=\"checkbox\" name=\"color\" v-bind:value=\"colorname\" v-bind:data-category=\"item.id\"" +
+              "@change=\"selectFacet((item.id), colorname)\">" +
+              "<label v-bind:for=\"(itemindex+1)+''+(colorindex+1)\" class=\"plp-facets--option-label\">{{ colorname }}</label><br/>" +
           "</div>" +
         "</template>" +
         "</div>" +
   "</template>" +
     "</div>",
-  props:['facetlistobj']
+  props:['facetlistobj'],
+  methods: {
+    selectFacet: function(){
+      vueObject.checkOption();
+    }
+  }
 })

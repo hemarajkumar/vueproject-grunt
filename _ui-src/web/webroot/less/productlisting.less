@@ -23,11 +23,45 @@
   margin-top: 20px;
   width: 100%;
 
+  &__pagination {
+    margin: 0 0 20px 0;
+    float: left;
+    padding: 10px;
+  }
+
+  &__now-price {
+      font-weight: bold;
+      margin-right: 10px;
+  }
+
+  &__was-price {
+      font-weight: bold;
+      margin-right: 10px;
+      color: red;
+
+      i {
+        text-decoration:line-through;
+      }
+  }
+
+  &__price {
+      width: 100%;
+      float: left;
+      text-align: center;
+  }
+
+  &__sort-by {
+      width: 200px;
+      padding: 10px;
+  }
+
   &__name {
     float: left;
     width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
+    font-weight: bold;
+    font-size: 1.2em;
   }
 
   &__product {
@@ -36,19 +70,24 @@
     height: auto;
     margin: 0 20px 20px 0;
     position: relative;
+    border: 1px solid #ccc;
+    padding: 5px;
+    -webkit-box-shadow: 2px 5px 11px -1px rgba(128,124,128,1);
+    -moz-box-shadow: 2px 5px 11px -1px rgba(128,124,128,1);
+    box-shadow: 2px 5px 11px -1px rgba(128,124,128,1);
   }
 
   &__img-container {
     float: left;
-    width: 310px;
-    max-height: 310px;
+    width: @plpImageWidth;
+    max-height: @plpImageWidth;
 
     &--link {
       float: left;
-      width: 310px;
-      max-width: 310px;
-      max-height: 310px;
-      height:310px;
+      width: @plpImageWidth;
+      max-width: @plpImageWidth;
+      max-height: @plpImageWidth;
+      height: @plpImageWidth;
     }
   }
 
@@ -61,8 +100,8 @@
 
   &__roundel-product {
     position: absolute;
-    left: -10px;
-    top: -10px;
+    left: 0;
+    top: 0;
     width: 80px;
     height: 80px;
   }

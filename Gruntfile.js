@@ -74,7 +74,6 @@ module.exports = function(grunt) {
               '_ui-src/web/webroot/js/common/bootstrap.min.js',
               '_ui-src/web/webroot/js/common/owl.carousel.js',
               '_ui-src/web/webroot/js/common/vue.js',
-              '_ui-src/web/webroot/js/common/lodash.js',
               '_ui-src/web/webroot/js/theme/jsondata.js',
               '_ui-src/web/webroot/js/theme/component.js',
               '_ui-src/web/webroot/js/theme/scripts.js'

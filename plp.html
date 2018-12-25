@@ -6,7 +6,10 @@
 	<meta name="robots" CONTENT="index,follow"/>
 </footer>
 </head>
-
+  <script TYPE="text/javascript" SRC="web/webroot/_ui/js/lodash.min.js"></lodash.min>
+<script>
+_u = _.noConflict(); // lets call ourselves _u
+</script>
 <body class="homepage">
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="container nopad headerNav">
@@ -41,6 +44,13 @@
 									</div>
 								</div>
 								<div class="col-xs-9">
+									<div class="plp-products__pagination col-xs-12">
+										<select class="plp-products__sort-by js-sortBy">
+												<option value="default" selected>Sort By</option>
+  											<option value="hightolow">High - Low</option>
+  											<option value="lowtohigh">Low - Hight</option>
+										</select>
+									</div>
 									<product-list :plplistobj="plplistobj"> </product-list>
 								</div>
 							</div>
