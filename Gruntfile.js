@@ -76,7 +76,8 @@ module.exports = function(grunt) {
               '_ui-src/web/webroot/js/common/vue.js',
               '_ui-src/web/webroot/js/theme/jsondata.js',
               '_ui-src/web/webroot/js/theme/component.js',
-              '_ui-src/web/webroot/js/theme/scripts.js'
+              '_ui-src/web/webroot/js/theme/scripts.js',
+              '_ui-src/web/webroot/js/theme/gtm.js'
               ],
         dest: 'web/webroot/_ui/js/project-script.js',
       },

@@ -9,7 +9,7 @@
 
 <body class="homepage">
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-  <div class="container nopad headerNav">
+  <div class="container nopad headerNav" style="position: relative;">
    <div class="navbar-header nomargin">
       <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -24,13 +24,73 @@
 				<div class="" id="menuBlock">
 							<menu-list :menuobj="menuobj"> </menu-list>
 					</div>
-	    </nav>
+	  </nav>
+		<div class="mini-basket" style="">
+			<a id="load-minibasket-popover" class="mini-basket__trolly glyphicon glyphicon-shopping-cart" data-original-title="" title=""></a>
+			<span class="mini-basket__circle">0</span>
+		</div>
   </div>
 </header>
 <div id="vueData">
 	  <section>
 		    <carousel-list :carouselobj="carouselobj"> </carousel-list>
 	  </section>
+</div>
+
+<div id="basketData" class="hide">
+	<div class="mini-cart">
+			<div class="mini-cart__order-list">
+			  <article class="mini-cart__thumb-image">
+					<a href="javascript:void(0);">
+						<img src="https://media.sofa.com/thumbor/unsafe/fit-in/260x135/center/middle/https%3A%2F%2Fmedia.sofa.com%2Fmedias%2F%3Fcontext%3DbWFzdGVyfHJvb3R8NzY2NzB8aW1hZ2UvanBlZ3xoYmMvaGY5Lzg4NDkxMzc0MzQ2NTQuanBnfDkyYjJiMDFhN2Q0ZGRhNGE1YmIzMjEyODkzNzBhYTBjODUwMTdlMjdiMjI1MzI0MmRhZDVjMmExZTFhZTE0Njc" alt="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" title="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" class="img-responsive">
+					</a>
+		  	</article>
+		  	<aside class="mini-cart__details">
+					<div class="col-xs-12 noPad">
+						<a class="mini-cart__name" href="/gb/sofas/bestselling-sofas/aissa-sofa/p/FSAIS120BLCLOC">Aissa 2 Seat Sofa in Loch Brushed Linen Cotton</a>
+					</div>
+					<div class="col-xs-12 noPad">
+						<div class="col-xs-5 noPad">
+							<span class="mini-cart__qty">Quantity : 1</span>
+						</div>
+						<div class="col-xs-7 noPad">
+							<span class="mini-cart__price">£1,241.00</span>
+							<span class="mini-cart__was-price">Was &nbsp;£1,460.00</span>
+						</div>
+					</div>
+				</aside>
+			</div>
+
+			<div class="mini-cart__order-list">
+				<article class="mini-cart__thumb-image">
+					<a href="javascript:void(0);">
+						<img src="https://media.sofa.com/thumbor/unsafe/fit-in/260x135/center/middle/https%3A%2F%2Fmedia.sofa.com%2Fmedias%2F%3Fcontext%3DbWFzdGVyfHJvb3R8NzY2NzB8aW1hZ2UvanBlZ3xoYmMvaGY5Lzg4NDkxMzc0MzQ2NTQuanBnfDkyYjJiMDFhN2Q0ZGRhNGE1YmIzMjEyODkzNzBhYTBjODUwMTdlMjdiMjI1MzI0MmRhZDVjMmExZTFhZTE0Njc" alt="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" title="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" class="img-responsive">
+					</a>
+				</article>
+				<aside class="mini-cart__details">
+					<div class="col-xs-12 noPad">
+						<a class="mini-cart__name" href="/gb/sofas/bestselling-sofas/aissa-sofa/p/FSAIS120BLCLOC">Aissa 2 Seat Sofa in Loch Brushed Linen Cotton</a>
+					</div>
+					<div class="col-xs-12 noPad">
+						<div class="col-xs-5 noPad">
+							<span class="mini-cart__qty">Quantity : 1</span>
+						</div>
+						<div class="col-xs-7 noPad">
+							<span class="mini-cart__price">£1,241.00</span>
+							<span class="mini-cart__was-price">Was &nbsp;£1,460.00</span>
+						</div>
+					</div>
+				</aside>
+			</div>
+
+			<div class="mini-cart__total">
+				 Total: £1000.00
+			</div>
+
+			<button type="button" class="btn btn-primary mini-cart__checkout-button">Checkout</button>
+	</div>
+
+
 </div>
 <footer>
     <script TYPE="text/javascript" SRC="web/webroot/_ui/js/project-script.js"></script>

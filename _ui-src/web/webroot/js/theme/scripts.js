@@ -180,6 +180,8 @@ var vueObject = new Vue({
   }
 })
 
+
+
 var navapp = new Vue({
   el: "#menuBlock",
   data: {
@@ -198,3 +200,29 @@ if (sortByPrice !== null) {
     vueObject.checkOption();
   });
 }
+
+
+$(function () {
+//  $('[data-toggle="popover"]').popover();
+
+  $('#load-minibasket-popover').popover( {
+       content: '<div id="ajax-popover"></div>',
+       html: true,
+       placement: 'bottom'
+    });
+
+
+    $('#load-minibasket-popover').on('shown.bs.popover', function () {
+      $('.popover.bottom .arrow').css('top', '-11px');
+    //  var miniCartUrl = $(this).data("miniCartUrl");
+    //  $.ajax({
+    //    url     : miniCartUrl,
+    //    cache   : false,
+    //    type    : 'GET',
+    //    dataType: "html",
+    //    success : function(jsonData) {
+          $("#ajax-popover").html($("#basketData").html());
+    //    }
+    //  });
+    });
+})

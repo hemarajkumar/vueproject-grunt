@@ -48,6 +48,12 @@
     width: 1600px;
   }
 }
+.noPad {
+  padding: 0;
+}
+.hide {
+  display: block;
+}
 ul li {
   list-style-type: none;
 }
@@ -66,7 +72,7 @@ ul li {
 .navbar {
   background: #000;
   width: 100%;
-  margin-bottom: 20px;
+  margin: 0;
 }
 .navbar .headerNav {
   position: relative;
@@ -385,4 +391,108 @@ ul.nav li a.active {
   top: 0;
   width: 80px;
   height: 80px;
+}
+.mini-basket {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  color: #fff;
+}
+.mini-basket__trolly {
+  font-size: 1.8em;
+  margin-right: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.mini-basket__trolly:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.mini-basket__circle {
+  border-radius: 50%;
+  background-color: red;
+  padding: 4px 10px;
+  float: right;
+  color: #fff;
+}
+.popover {
+  width: 375px;
+  max-width: 375px !important;
+}
+.popover-content {
+  width: 375px !important;
+  padding: 5px;
+  color: #000;
+  box-sizing: border-box;
+}
+.mini-cart {
+  display: flex;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  text-align: center;
+  width: 360px;
+  flex-direction: column;
+}
+.mini-cart__order-list {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 0 0 5px 0;
+  border-bottom: 1px solid #000;
+}
+.mini-cart__thumb-image {
+  text-align: left;
+  padding: 10px 5px 0 5px;
+  box-sizing: border-box;
+}
+@media all and (min-width: 800px) {
+  .mini-cart__thumb-image {
+    order: 1;
+    -webkit-order: 1;
+  }
+}
+.mini-cart__name {
+  display: flex;
+  text-align: left;
+  text-decoration: none;
+  color: #000;
+}
+.mini-cart__name:hover {
+  text-decoration: none;
+  color: #000;
+}
+.mini-cart__qty {
+  display: flex;
+  text-align: left;
+}
+.mini-cart__details {
+  margin-left: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+@media all and (min-width: 800px) {
+  .mini-cart__details {
+    order: 2;
+    -webkit-order: 2;
+  }
+}
+.mini-cart__price,
+.mini-cart__was-price {
+  float: left;
+  width: 100%;
+  text-align: right;
+}
+.mini-cart__was-price {
+  opacity: 0.5;
+}
+.mini-cart__total {
+  text-align: right;
+  padding: 10px;
+  font-size: 1.1em;
+}
+.mini-cart__checkout-button {
+  margin: 10px auto;
+  width: auto;
+  padding: 6px 30px;
+  font-size: 1.4em;
 }

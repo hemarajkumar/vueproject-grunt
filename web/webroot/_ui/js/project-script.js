@@ -25165,6 +25165,8 @@ var vueObject = new Vue({
   }
 })
 
+
+
 var navapp = new Vue({
   el: "#menuBlock",
   data: {
@@ -25183,3 +25185,47 @@ if (sortByPrice !== null) {
     vueObject.checkOption();
   });
 }
+
+
+$(function () {
+//  $('[data-toggle="popover"]').popover();
+
+  $('#load-minibasket-popover').popover( {
+       content: '<div id="ajax-popover"></div>',
+       html: true,
+       placement: 'bottom'
+    });
+
+
+    $('#load-minibasket-popover').on('shown.bs.popover', function () {
+      $('.popover.bottom .arrow').css('top', '-11px');
+    //  var miniCartUrl = $(this).data("miniCartUrl");
+    //  $.ajax({
+    //    url     : miniCartUrl,
+    //    cache   : false,
+    //    type    : 'GET',
+    //    dataType: "html",
+    //    success : function(jsonData) {
+          $("#ajax-popover").html($("#basketData").html());
+    //    }
+    //  });
+    });
+})
+;$(function () {
+    var Gtm_inject = function() {
+      var div = document.createElement('div');
+      div.setAttribute('class', 'gtm__category');
+      var img = document.createElement('img');
+      img.src = "web/webroot/_ui/images/category.jpg";
+      img.alt = this.name;
+      img.className = 'gtm__category_flash-img';
+      var a = document.createElement('a');
+      a.href = 'http://www.sofa.com/';
+      a.target = '_blank';
+      a.append(img);
+      div.appendChild(a);
+      var categoryObj = document.querySelector('.js-productListing');
+      categoryObj.prepend(div);
+    };
+    Gtm_inject();
+})
