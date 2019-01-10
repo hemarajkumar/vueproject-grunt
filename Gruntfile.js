@@ -32,6 +32,8 @@ module.exports = function(grunt) {
 
 
 	watch: {
+    files: ['_ui-src/web/webroot/js/theme/*.js'],
+    tasks: ['jshint'],
 		less: {
 			files: ["_ui-src/web/webroot/less/*.less"],
 			tasks: ["less"],
@@ -39,12 +41,24 @@ module.exports = function(grunt) {
 				nospawn: true
 			}
 		},
-    files: ['<%= jshint.all %>'],
-    tasks: ['jshint'],
-    ybasejs: {
-       files: ['_ui-src/web/webroot/js/theme/*.js'],
-       tasks: ['sync:syncybase', 'jshint'],
-     },
+    concat: {
+      files: ['_ui-src/web/webroot/js/common/jquery-3.3.1.js',
+            '_ui-src/web/webroot/js/common/bootstrap.min.js',
+            '_ui-src/web/webroot/js/common/owl.carousel.js',
+            '_ui-src/web/webroot/js/common/vue.js',
+            '_ui-src/web/webroot/js/theme/jsondata.js',
+            '_ui-src/web/webroot/js/theme/component.js',
+            '_ui-src/web/webroot/js/theme/scripts.js',
+            '_ui-src/web/webroot/js/theme/gtm.js'
+            ],
+      tasks: ["concat"]
+    }
+  //  files: ['<%= jshint.all %>'],
+  //  tasks: ['jshint'],
+  //  ybasejs: {
+  //     files: ['_ui-src/web/webroot/js/theme/*.js'],
+  //     tasks: ['sync:syncybase', 'jshint'],
+  //   },
 	},
 	less: {
       build: {
@@ -98,7 +112,6 @@ module.exports = function(grunt) {
   /** Plugin's */
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-sync');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -106,5 +119,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concat-css');
 
 
-  grunt.registerTask('default', ['clean', 'less', 'copy', 'jshint', 'watch', 'concat', 'concat_css']);
+  grunt.registerTask('default', ['clean', 'less', 'copy', 'concat', 'concat_css', 'jshint', 'watch']);
 };
