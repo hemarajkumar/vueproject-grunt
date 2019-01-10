@@ -6,6 +6,7 @@ var navmenu = {"menulist":[
   {"Title":"Accessories", "id":"cat04"}
 ]}
 
+var productAdded =[];
 
 var carouselList = {"lists":[
 {
@@ -88,7 +89,7 @@ var productlList = {"lists":[
 {"id":"cat01_01", "name":"Shirt 1", "price":"15.00", "wasprice":"18.00", "image":"web/webroot/_ui/images/shirt1.jpg",
   "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"white", "quantity":"10"},
 {"id":"cat01_02", "name":"Shirt 2", "price":"18.00", "image":"web/webroot/_ui/images/shirt2.jpg", "color":"blue", "quantity":"0" },
-{"id":"cat01_03", "name":"Shirt 3", "price":"12.00", "image":"web/webroot/_ui/images/shirt3.jpg", "color":"blue", "quantity":"8"},
+{"id":"cat01_03", "name":"Shirt 3", "price":"12.00", "image":"web/webroot/_ui/images/shirt3.jpg", "color":"blue", "quantity":"5"},
 {"id":"cat01_04", "name":"Shirt 4", "price":"34.00", "wasprice":"42.00", "image":"web/webroot/_ui/images/shirt5.jpg",
   "color":"blue", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "quantity":"10"},
 {"id":"cat01_04", "name":"Shirt 5", "price":"30.00", "image":"web/webroot/_ui/images/shirt6.jpg", "color":"pink", "quantity":"0"},

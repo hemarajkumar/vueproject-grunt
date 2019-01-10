@@ -24771,6 +24771,7 @@ return Vue;
   {"Title":"Accessories", "id":"cat04"}
 ]}
 
+var productAdded =[];
 
 var carouselList = {"lists":[
 {
@@ -24853,7 +24854,7 @@ var productlList = {"lists":[
 {"id":"cat01_01", "name":"Shirt 1", "price":"15.00", "wasprice":"18.00", "image":"web/webroot/_ui/images/shirt1.jpg",
   "roundelImg":"web/webroot/_ui/images/roundelbg.png", "color":"white", "quantity":"10"},
 {"id":"cat01_02", "name":"Shirt 2", "price":"18.00", "image":"web/webroot/_ui/images/shirt2.jpg", "color":"blue", "quantity":"0" },
-{"id":"cat01_03", "name":"Shirt 3", "price":"12.00", "image":"web/webroot/_ui/images/shirt3.jpg", "color":"blue", "quantity":"8"},
+{"id":"cat01_03", "name":"Shirt 3", "price":"12.00", "image":"web/webroot/_ui/images/shirt3.jpg", "color":"blue", "quantity":"5"},
 {"id":"cat01_04", "name":"Shirt 4", "price":"34.00", "wasprice":"42.00", "image":"web/webroot/_ui/images/shirt5.jpg",
   "color":"blue", "roundelImg":"web/webroot/_ui/images/roundelbg.png", "quantity":"10"},
 {"id":"cat01_04", "name":"Shirt 5", "price":"30.00", "image":"web/webroot/_ui/images/shirt6.jpg", "color":"pink", "quantity":"0"},
@@ -24951,14 +24952,20 @@ Vue.component('product-list', {
       "<div class=\"plp-products__price\"><span class=\"plp-products__now-price\"><i v-if=\"product.wasprice\">Now - </i>£{{ product.price }}</span>" +
       "<span v-if=\"product.wasprice\" class=\"plp-products__was-price\">Was - <i>£{{ product.wasprice }}</i></span></div>" +
       "<div class=\"plp-products__add-basket\"><div class=\"col-xs-12\"><div class=\"row\">" +
-      "<button v-if=\"product.quantity > 0\" class=\"btn btn-danger plp-products--add-basket-btn\">Add to Basket</button>" +
+      "<button v-if=\"product.quantity > 0\" class=\"btn btn-danger plp-products--add-basket-btn\"" +
+      "@click=\"selectProduct(product.id, product.quantity);\">Add to Basket</button>" +
       "<button v-if=\"product.quantity == 0\" class=\"btn btn-secondary plp-products--add-basket-btn\" disabled>Out of Stock</button>" +
       "</div></div></div>" +
       "<div v-if=\"product.roundelImg\" class=\"plp-products__roundel-product\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
       "</div></div>" +
     "</template>" +
     "</div>",
-  props:['plplistobj']
+  props:['plplistobj'],
+  methods: {
+    selectProduct: function(id, qty){
+      vueObject.addBasket(id, qty);
+    }
+  }
 })
 
 Vue.component('facet-list', {
@@ -24996,12 +25003,14 @@ var vueObject = new Vue({
       plpobj: [],
       plplistobj: [],
       facetSelected: [],
-      facetoptionselected: []
+      facetoptionselected: [],
+      cartListObj: []
     },
     mounted () {
       this.carouselobj = carouselList;
       this.facetlistobj = this.updateFacets(productlList);
       this.plplistobj =  this.updatePlpData();
+      this.cartListObj = productAdded;
       setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
@@ -25156,6 +25165,38 @@ var vueObject = new Vue({
         else {
           return facets;
         }
+      },
+
+      addBasket: function (id, qty) {
+        let cartObj = this.cartListObj;
+        let checkId = this.checkIdExists(id, qty);
+        if (checkId == undefined){
+            cartObj.push({"product":id,"quantity": 1});
+        }
+      //  console.log(cartObj);
+
+
+        var data = cartObj.map((item, index) => {
+          item.key = index + 1;
+          return item;
+        });
+
+        var d = new Date();
+       d.setTime(d.getTime() + 24*60*60*1000*1);
+        document.cookie = "basketData=" + data + ";path=file://projects/;expires=" + d.toGMTString();
+
+
+      },
+
+      checkIdExists: function (id, qty) {
+        for (let list of Object.values(this.cartListObj)) {
+          if (list.product == id) {
+            if ((qty - list.quantity) > 0) {
+              list.quantity = (list.quantity + 1);
+            }
+            return true;
+          }
+        }
       }
   },
   watch: {
@@ -25195,7 +25236,6 @@ $(function () {
        html: true,
        placement: 'bottom'
     });
-
 
     $('#load-minibasket-popover').on('shown.bs.popover', function () {
       $('.popover.bottom .arrow').css('top', '-11px');

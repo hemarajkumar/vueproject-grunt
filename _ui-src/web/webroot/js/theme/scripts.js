@@ -11,12 +11,14 @@ var vueObject = new Vue({
       plpobj: [],
       plplistobj: [],
       facetSelected: [],
-      facetoptionselected: []
+      facetoptionselected: [],
+      cartListObj: []
     },
     mounted () {
       this.carouselobj = carouselList;
       this.facetlistobj = this.updateFacets(productlList);
       this.plplistobj =  this.updatePlpData();
+      this.cartListObj = productAdded;
       setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
@@ -171,6 +173,36 @@ var vueObject = new Vue({
         else {
           return facets;
         }
+      },
+
+      addBasket: function (id, qty) {
+        let cartObj = this.cartListObj;
+        let checkId = this.checkIdExists(id, qty);
+        if (checkId == undefined){
+            cartObj.push({"product":id,"quantity": 1});
+        }
+
+/*        var data = cartObj.map((item, index) => {
+          item.key = index + 1;
+          return item;
+        });
+
+        var d = new Date();
+       d.setTime(d.getTime() + 24*60*60*1000*1);
+        document.cookie = "basketData=" + data + ";path=file://projects/;expires=" + d.toGMTString(); */
+
+
+      },
+
+      checkIdExists: function (id, qty) {
+        for (let list of Object.values(this.cartListObj)) {
+          if (list.product == id) {
+            if ((qty - list.quantity) > 0) {
+              list.quantity = (list.quantity + 1);
+            }
+            return true;
+          }
+        }
       }
   },
   watch: {
@@ -210,7 +242,6 @@ $(function () {
        html: true,
        placement: 'bottom'
     });
-
 
     $('#load-minibasket-popover').on('shown.bs.popover', function () {
       $('.popover.bottom .arrow').css('top', '-11px');

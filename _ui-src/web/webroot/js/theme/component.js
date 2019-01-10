@@ -43,14 +43,20 @@ Vue.component('product-list', {
       "<div class=\"plp-products__price\"><span class=\"plp-products__now-price\"><i v-if=\"product.wasprice\">Now - </i>£{{ product.price }}</span>" +
       "<span v-if=\"product.wasprice\" class=\"plp-products__was-price\">Was - <i>£{{ product.wasprice }}</i></span></div>" +
       "<div class=\"plp-products__add-basket\"><div class=\"col-xs-12\"><div class=\"row\">" +
-      "<button v-if=\"product.quantity > 0\" class=\"btn btn-danger plp-products--add-basket-btn\">Add to Basket</button>" +
+      "<button v-if=\"product.quantity > 0\" class=\"btn btn-danger plp-products--add-basket-btn\"" +
+      "@click=\"selectProduct(product.id, product.quantity);\">Add to Basket</button>" +
       "<button v-if=\"product.quantity == 0\" class=\"btn btn-secondary plp-products--add-basket-btn\" disabled>Out of Stock</button>" +
       "</div></div></div>" +
       "<div v-if=\"product.roundelImg\" class=\"plp-products__roundel-product\" v-bind:style=\"{ 'background-image': 'url(' + product.roundelImg + ')'}\"></div>" +
       "</div></div>" +
     "</template>" +
     "</div>",
-  props:['plplistobj']
+  props:['plplistobj'],
+  methods: {
+    selectProduct: function(id, qty){
+      vueObject.addBasket(id, qty);
+    }
+  }
 })
 
 Vue.component('facet-list', {
