@@ -2,14 +2,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
-       images: ["web/webroot/_ui/images"]
+       images: ["web/images"]
     },
     copy: {
         images: {
           expand: true,
-          cwd: '_ui-src/web/webroot/images',
+          cwd: '_ui-src/images',
           src:'**/*',
-          dest: 'web/webroot/_ui/images/'
+          dest: 'web/images/'
         }
     },
 
@@ -27,36 +27,37 @@ module.exports = function(grunt) {
                "jQuery": true
            }
        },
-       all: ['_ui-src/web/webroot/js/theme/*.js']
+       all: ['_ui-src/js/theme/*.js']
     },
 
 
 	watch: {
-    files: ['_ui-src/web/webroot/js/theme/*.js'],
+    files: ['_ui-src/js/theme/*.js'],
     tasks: ['jshint'],
 		less: {
-			files: ["_ui-src/web/webroot/less/*.less"],
+			files: ["_ui-src/less/*.less"],
 			tasks: ["less"],
 			options: {
 				nospawn: true
 			}
 		},
     concat: {
-      files: ['_ui-src/web/webroot/js/common/jquery-3.3.1.js',
-            '_ui-src/web/webroot/js/common/bootstrap.min.js',
-            '_ui-src/web/webroot/js/common/owl.carousel.js',
-            '_ui-src/web/webroot/js/common/vue.js',
-            '_ui-src/web/webroot/js/theme/jsondata.js',
-            '_ui-src/web/webroot/js/theme/component.js',
-            '_ui-src/web/webroot/js/theme/scripts.js',
-            '_ui-src/web/webroot/js/theme/gtm.js'
+      files: ['_ui-src/js/common/jquery-3.3.1.js',
+            '_ui-src/js/common/bootstrap.min.js',
+            '_ui-src/js/common/owl.carousel.js',
+            '_ui-src/js/common/vue.js',
+            '_ui-src/js/theme/lodash.js',
+            '_ui-src/js/theme/cookie.js',
+            '_ui-src/js/theme/component.js',
+            '_ui-src/js/theme/scripts.js',
+            '_ui-src/js/theme/gtm.js'
             ],
       tasks: ["concat"]
     }
   //  files: ['<%= jshint.all %>'],
   //  tasks: ['jshint'],
   //  ybasejs: {
-  //     files: ['_ui-src/web/webroot/js/theme/*.js'],
+  //     files: ['_ui-src/js/theme/*.js'],
   //     tasks: ['sync:syncybase', 'jshint'],
   //   },
 	},
@@ -74,7 +75,7 @@ module.exports = function(grunt) {
           ieCompat: false
         },
   			files: {
-  				"web/webroot/_ui/css/theme/project.css": "_ui-src/web/webroot/less/styles.less"
+  				"web/css/theme/project.css": "_ui-src/less/styles.less"
   			}
 		}
 	},
@@ -84,16 +85,19 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['_ui-src/web/webroot/js/common/jquery-3.3.1.js',
-              '_ui-src/web/webroot/js/common/bootstrap.min.js',
-              '_ui-src/web/webroot/js/common/owl.carousel.js',
-              '_ui-src/web/webroot/js/common/vue.js',
-              '_ui-src/web/webroot/js/theme/jsondata.js',
-              '_ui-src/web/webroot/js/theme/component.js',
-              '_ui-src/web/webroot/js/theme/scripts.js',
-              '_ui-src/web/webroot/js/theme/gtm.js'
+        src: ['_ui-src/js/common/jquery-3.3.1.js',
+              '_ui-src/js/common/bootstrap.min.js',
+              '_ui-src/js/common/owl.carousel.js',
+              '_ui-src/js/theme/lodash.js',
+              '_ui-src/js/common/vue.js',
+              '_ui-src/js/common/cookie.js',
+              '_ui-src/js/theme/jsondata.js',
+              '_ui-src/js/theme/component.js',
+              '_ui-src/js/theme/scripts.js',
+              '_ui-src/js/theme/gtm.js'
+
               ],
-        dest: 'web/webroot/_ui/js/project-script.js',
+        dest: 'web/js/project-script.js',
       },
     },
 
@@ -102,9 +106,9 @@ module.exports = function(grunt) {
           // Task-specific options go here.
         },
         all: {
-          src: ["_ui-src/web/webroot/css/common/bootstrap/*.css",
-                "_ui-src/web/webroot/css/common/owl-carousel/*.css"],
-          dest: "web/webroot/_ui/css/common/plugin.css",
+          src: ["_ui-src/css/common/bootstrap/*.css",
+                "_ui-src/css/common/owl-carousel/*.css"],
+          dest: "web/css/common/plugin.css",
         }
       }
   });

@@ -12,13 +12,16 @@ var vueObject = new Vue({
       plplistobj: [],
       facetSelected: [],
       facetoptionselected: [],
-      cartListObj: []
+      basketList: [],
+      basketpopupdata:[]
     },
     mounted () {
       this.carouselobj = carouselList;
       this.facetlistobj = this.updateFacets(productlList);
       this.plplistobj =  this.updatePlpData();
-      this.cartListObj = productAdded;
+      this.cookieData =  Cookies.getJSON('basketData');
+      this.basketList = this.cookieData == undefined ? [] : this.cookieData;
+      this.basketpopupdata = this.getBasketData();
       setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
@@ -36,6 +39,47 @@ var vueObject = new Vue({
       }, 200);
     },
     methods: {
+      getBasketData: function () {
+        let cookieData = this.basketList;
+        let objList = [];
+        let basketList = [];
+        let objIdx = 0;
+        let totalPrice = 0;
+        for (let value of Object.values(productlList['lists'])) {
+            for (let list of Object.values(value.list)) {
+               for (let cookieProduct of Object.values(cookieData)) {
+                 if (Object.values(cookieProduct).indexOf(list.id) >= 0) {
+                   let quantity = this.getBasketQuantity(list.id, cookieData);
+                    let priceValue = (parseInt(list.price) * quantity).toFixed(2);
+                    let childObject = {};
+                    childObject['name'] = list.name;
+                    childObject['id'] = list.id;
+                    childObject['image'] = list.image;
+                    childObject['price'] = priceValue
+                    childObject['quantity'] = quantity;
+                    objList[objIdx] = childObject;
+                    objIdx += 1;
+                    totalPrice += priceValue * quantity;
+                    childObject = [];
+                  }
+                }
+              }
+         }
+         basketList['total'] = totalPrice.toFixed(2);
+         basketList['productselected'] = Object.values(objList).length;
+         basketList['list'] = objList;
+         return basketList;
+      },
+
+      getBasketQuantity: function (cat_id, obj) {
+          for (let list of Object.values(obj)) {
+            if (list.product == cat_id) {
+                return list.quantity;
+            }
+
+          }
+      },
+
       updateFacets: function (obj) {
         let facetList = [];
         let facetIdx = 0;
@@ -133,6 +177,7 @@ var vueObject = new Vue({
           .map((checkbox) => checkbox);
         this.facetoptionselected = [];
         let categoryUpdated = [];
+        console.log(facetObj);
         for (let ckobj in facetObj) {
           let thisobj = facetObj[ckobj];
           let categoryExists = categoryUpdated.includes(thisobj.getAttribute('data-category'));
@@ -176,26 +221,24 @@ var vueObject = new Vue({
       },
 
       addBasket: function (id, qty) {
-        let cartObj = this.cartListObj;
+        let cartObj = this.basketList;
         let checkId = this.checkIdExists(id, qty);
         if (checkId == undefined){
             cartObj.push({"product":id,"quantity": 1});
         }
-
-/*        var data = cartObj.map((item, index) => {
+        var data = cartObj.map((item, index) => {
           item.key = index + 1;
           return item;
         });
-
         var d = new Date();
-       d.setTime(d.getTime() + 24*60*60*1000*1);
-        document.cookie = "basketData=" + data + ";path=file://projects/;expires=" + d.toGMTString(); */
-
-
+        d.setTime(d.getTime() + 24*60*60*1000*1);
+        document.cookie = "basketData=" + JSON.stringify(this.basketList);
+        this.basketpopupdata = this.getBasketData();
       },
 
       checkIdExists: function (id, qty) {
-        for (let list of Object.values(this.cartListObj)) {
+        console.log(this.basketList);
+        for (let list of Object.values(this.basketList)) {
           if (list.product == id) {
             if ((qty - list.quantity) > 0) {
               list.quantity = (list.quantity + 1);
@@ -206,9 +249,8 @@ var vueObject = new Vue({
       }
   },
   watch: {
-    plplistobj: function () {
-    //  console.log('value changed');
-    }
+    plplistobj: function () {},
+    basketpopupdata: function () {}
   }
 })
 

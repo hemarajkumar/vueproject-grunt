@@ -3,7 +3,7 @@ $(function () {
       var div = document.createElement('div');
       div.setAttribute('class', 'gtm__category');
       var img = document.createElement('img');
-      img.src = "web/webroot/_ui/images/category.jpg";
+      img.src = "web/images/category.jpg";
       img.alt = this.name;
       img.className = 'gtm__category_flash-img';
       var a = document.createElement('a');
@@ -16,3 +16,11 @@ $(function () {
     };
     Gtm_inject();
 })
+
+$('body').on('click', function (e) {
+    $('[data-toggle="popover"]').each(function () {
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            $(this).popover('hide');
+        }
+    });
+});
