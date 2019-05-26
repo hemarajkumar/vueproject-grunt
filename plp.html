@@ -11,7 +11,7 @@
 _u = _.noConflict(); // lets call ourselves _u
 </script>
 <body class="homepage">
-<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+<header class="navbar navbar-static-top bs-docs-nav" id="menuBlock" role="banner">
   <div class="container nopad headerNav">
    <div class="navbar-header nomargin">
       <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
@@ -24,14 +24,14 @@ _u = _.noConflict(); // lets call ourselves _u
     </div>
 
 		<nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-				<div class="" id="menuBlock">
+				<div class="" v-cloak>
 							<menu-list :menuobj="menuobj"> </menu-list>
 					</div>
 	    </nav>
 
 			<div class="mini-basket" style="">
 				<a id="load-minibasket-popover" data-toggle="popover" class="mini-basket__trolly glyphicon glyphicon-shopping-cart" data-original-title="" title=""></a>
-				<span class="mini-basket__circle">0</span>
+				<basket-count :basketqtycount="basketqtycount"> </basket-count>
 			</div>
 
   </div>
@@ -42,14 +42,14 @@ _u = _.noConflict(); // lets call ourselves _u
 				<div class="container">
 					<div class="row margin10top plp-products">
 							<div id="ProductLists" class="clearfix col-xs-12">
-								<div class="col-lg-3 col-md-3 col-sm-12">
+								<div class="col-lg-2 col-md-3 col-sm-12">
 									<div class="row">
-											<div class="plp-facets">
+											<div class="plp-facets" v-cloak>
 												<facet-list :facetlistobj="facetlistobj"> </facet-list>
 											</div>
 									</div>
 								</div>
-								<div class="col-lg-9 col-md-9 col-sm-12">
+								<div class="col-lg-10 col-md-9 col-sm-12">
 									<div class="plp-products__pagination col-xs-12">
 										<select class="plp-products__sort-by js-sortBy">
 												<option value="default" selected>Sort By</option>
@@ -57,7 +57,9 @@ _u = _.noConflict(); // lets call ourselves _u
   											<option value="lowtohigh">Low - High</option>
 										</select>
 									</div>
+									<div v-cloak>
 									<product-list :plplistobj="plplistobj"> </product-list>
+								  </div>
 								</div>
 							</div>
 					</div>

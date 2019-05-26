@@ -23,13 +23,6 @@
   margin-top: 20px;
   width: 100%;
 
-  &_list {
-    width: 100%;
-    @media (min-width: 481px) {
-        width: initial;
-    }
-  }
-
   &__pagination {
     margin: 0 0 20px 0;
     float: left;
@@ -71,6 +64,7 @@
   &__sort-by {
       width: 200px;
       padding: 10px;
+      margin-left: 20px;
   }
 
   &__name {
@@ -85,14 +79,8 @@
   &__product {
     float: left;
     width: 100%;
-    @media (min-width: 641px) {
-        width: 280px;
-    }
-    @media (min-width: 1400px) {
-        width: 310px;
-    }
     height: auto;
-    margin: 0 20px 20px 0;
+    margin: 0 10px 20px 0;
     position: relative;
     border: 1px solid #ccc;
     padding: 5px;
@@ -102,34 +90,30 @@
   }
 
   &__img-container {
-    float: left;
-    width: 100%;
-    max-height: 100%;
-    @media (min-width: 641px) {
-      width: 268px;
-      max-height: 268px;
+    margin: 0 auto;
+    max-width: @plpImageWidth-280;
+    max-height: @plpImageWidth-280;
+    min-width: @plpImageWidth-280;
+    min-width: @plpImageWidth-280;
+    @media only screen and (min-width: @media-large-desktop) {
+      max-width: @plpImageWidth-310;
+      max-height: @plpImageWidth-310;
+      min-width: @plpImageWidth-310;
+      min-width: @plpImageWidth-310;
     }
-    @media (min-width: 1400px) {
-      width: @plpImageWidth;
-      max-height: @plpImageWidth;
-    }
+
     &--link {
       float: left;
-      width: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      height: 100%;
-      @media (min-width: 641px) {
-        width: 268px;
-        max-width: 268px;
-        max-height: 268px;
-        height: 268px;
-      }
-      @media (min-width: 1400px) {
-        width: @plpImageWidth;
-        max-height: @plpImageWidth;
+      max-width: @plpImageWidth-280;
+      max-height: @plpImageWidth-280;
+      overflow: hidden;
+      @media only screen and (min-width: @media-large-desktop) {
+        max-width: @plpImageWidth-310;
+        max-height: @plpImageWidth-310;
       }
     }
+
+
   }
 
   &__img {
@@ -146,4 +130,8 @@
     width: 80px;
     height: 80px;
   }
+}
+
+.plp-products_list:nth-child(3n+1) {
+  clear: both;
 }

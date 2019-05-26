@@ -6,6 +6,14 @@ Vue.component('menu-list', {
   props:['menuobj']
 })
 
+Vue.component('basket-count', {
+  template:"<span class='mini-basket__circle'>" +
+    "{{basketqtycount}}" +
+    "</span>",
+  props:['basketqtycount']
+})
+
+
 Vue.component('carousel-list', {
     template:"<div class='col-xs-12 nopad carousel'>" +
       "<div class='owl-carousel owl-theme js-homePageCarousel' v-for='item in carouselobj'>" +
@@ -28,9 +36,9 @@ Vue.component('carousel-list', {
 })
 
 Vue.component('product-list', {
-  template:"<div>" +
+  template:"<div class=\"col-xs-12\">" +
     "<template  v-for='(item, itemindex) in plplistobj'>" +
-      "<div v-for='product in item.list' class=\"col-lg-4 col-xs-6 plp-products_list\">" +
+      "<div v-for='product in item.list' class=\"col-lg-4 col-md-6 col-xs-6 plp-products_list\">" +
       "<div class=\"plp-products__product\">" +
       "<div class=\"col-xs-12\">" +
       "<div class=\"row\">" +
@@ -62,6 +70,7 @@ Vue.component('product-list', {
 Vue.component('facet-list', {
   template:"<div>" +
   "<template  v-for='(item, itemindex) in facetlistobj'>" +
+    "<div class=\"col-xs-12\">" +
     "<div class=\"plp-facets__types\">" +
         "<h3 class=\"plp-facets--title\">{{ item.Title }}</h3>" +
         "<template  v-for='(colorname, colorindex) in item.colors'>" +
@@ -71,6 +80,7 @@ Vue.component('facet-list', {
               "<label v-bind:for=\"(itemindex+1)+''+(colorindex+1)\" class=\"plp-facets--option-label\">{{ colorname }}</label><br/>" +
           "</div>" +
         "</template>" +
+        "</div>" +
         "</div>" +
   "</template>" +
     "</div>",
@@ -86,7 +96,8 @@ Vue.component('basket-popup-list', {
   template:"<div id=\"basketData\" class=\"hide\">" +
   "<div class=\"mini-cart\">"+
   "<div v-if=\"basketpopupdata.productselected >= 4\" class=\"mini-cart__title\">Showing 4 out of {{basketpopupdata.productselected}}</div>" +
-  "<template  v-for='(item, key) in basketpopupdata.list'>" +
+  "<div class=\"minicart__popupcontainer\" v-if='(basketpopupdata.productselected > 0)'>" +
+  "<template v-for='(item, key) in basketpopupdata.list'>" +
     "<div v-if='(key < 4)' class=\"mini-cart__order-list\">" +
       "<article class=\"mini-cart__image-article\">" +
       "<a href=\"javascript:void(0);\" class=\"mini-cart__thumb-image\" v-bind:style=\"{'background-image': 'url(' + item.image + ')'}\"></a>" +
@@ -105,11 +116,13 @@ Vue.component('basket-popup-list', {
   "<div class=\"mini-cart__total\">Total: £{{basketpopupdata.total}}</div>" +
   "<button type=\"button\" class=\"btn btn-primary mini-cart__checkout-button\">Checkout</button>" +
   "</div>" +
+  "<span v-else class=\"mini-cart__emptymessage\">Your Shopping Bag is empty</span>" +
+  "</div>" +
   "</div>",
   props:['basketpopupdata'],
-  methods: {
-    selectFacet: function(){
-    //  vueObject.checkOption();
-    }
+  computed: {
+  normalizedSize: function () {
+    return 'test-raj';
   }
+}
 });

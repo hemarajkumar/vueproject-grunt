@@ -14,7 +14,7 @@ $(function () {
       var categoryObj = document.querySelector('.js-productListing');
       categoryObj.prepend(div);
     };
-    Gtm_inject();
+  //  Gtm_inject();
 })
 
 $('body').on('click', function (e) {

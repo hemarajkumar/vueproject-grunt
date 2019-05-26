@@ -1,6 +1,23 @@
 let urlParams = new URLSearchParams(window.location.search);
 let queryString = urlParams.get('search');
 let paginationSorting;
+
+var navapp = new Vue({
+  el: "#menuBlock",
+  data: {
+    menuobj: [],
+    basketqtycount: ''
+  },
+  mounted () {
+    this.menuobj = navmenu;
+    this.basketqtycount = '0';
+  },
+  watch: {
+    basketqtycount: function () {}
+  }
+});
+
+
 var vueObject = new Vue({
     el: "#vueData",
     data: {
@@ -43,7 +60,8 @@ var vueObject = new Vue({
         let cookieData = this.basketList;
         let objList = [];
         let basketList = [];
-        let objIdx = 0;
+        let objIdx = 0
+        let basketQuantity = 0;
         let totalPrice = 0;
         for (let value of Object.values(productlList['lists'])) {
             for (let list of Object.values(value.list)) {
@@ -61,6 +79,7 @@ var vueObject = new Vue({
                     objIdx += 1;
                     totalPrice += priceValue * quantity;
                     childObject = [];
+                    basketQuantity += quantity;
                   }
                 }
               }
@@ -68,6 +87,7 @@ var vueObject = new Vue({
          basketList['total'] = totalPrice.toFixed(2);
          basketList['productselected'] = Object.values(objList).length;
          basketList['list'] = objList;
+         navapp.basketqtycount = basketQuantity;
          return basketList;
       },
 
@@ -253,18 +273,6 @@ var vueObject = new Vue({
     basketpopupdata: function () {}
   }
 })
-
-
-
-var navapp = new Vue({
-  el: "#menuBlock",
-  data: {
-    menuobj: []
-  },
-  mounted () {
-    this.menuobj = navmenu;
-  }
-});
 
 // select box event
 var sortByPrice = document.querySelector(".js-sortBy");

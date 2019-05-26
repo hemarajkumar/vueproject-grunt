@@ -1,25 +1,11 @@
-//
-// Assessment Project
-// --------------------------------------------------
-
 ul li{
     list-style-type: none;
 }
 .bs-docs-nav {
     .navbar-toggle {
         .icon-bar {background-color: #fff;}
-        &:focus {
-             background-color: #fff;
-        }
     }
-    &:hover {
-        .icon-bar {
-            background-color: #000;
-        }
-    }
-    &:focus {
-        background-color: #fff;
-    }
+
 }
 
 .navbar {
@@ -32,15 +18,15 @@ ul li{
         &:hover {
             color: #fff;
         }
-    }
-    .assesmentHeading {
-        span {
-            .fontsizerule1 (@size: 16px, @weight: normal, @color:#fff);
-            display: block;
-            &.name {font-size:14px;}
+        position: relative;
+        left: 30%;
+        @media screen and (min-width: 768px) {
+          left: 0%;
         }
-        .logo{float: left;}
-        .name {float: right;}
+    }
+    .navbar-toggle {
+      float: left;
+      margin-left: 15px;
     }
     .miniCart {
         color:#fff; height:30px; margin-top:20px; width:auto;
@@ -65,15 +51,6 @@ ul.nav li a {
         background-color: #fff;
     }
 }
-
-
-
-
-
-
-
-
-
 
 .site-header {
 	width: 100%;
@@ -166,4 +143,10 @@ ul.nav li a {
 	   		}
 	    }
 	}
+}
+
+
+.hompepage-carousel {
+  display: flex;
+  margin-top: 10px
 }
