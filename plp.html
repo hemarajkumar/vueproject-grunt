@@ -39,6 +39,17 @@ _u = _.noConflict(); // lets call ourselves _u
 <div id="vueData">
 		<section>
 			<div class="contentDiv js-productListing" style="">
+
+		 	<div class="row">
+				<div class="col-xs-12">
+					<div class="banner-content">
+							<category-title :categorycontent="categorycontent"> </category-title>
+							<category-description :categorycontent="categorycontent"> </category-description>
+				</div>
+				</div>
+			</div>
+
+
 				<div class="container">
 					<div class="row margin10top plp-products">
 							<div id="ProductLists" class="clearfix col-xs-12">

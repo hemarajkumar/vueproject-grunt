@@ -30,7 +30,8 @@ var vueObject = new Vue({
       facetSelected: [],
       facetoptionselected: [],
       basketList: [],
-      basketpopupdata:[]
+      basketpopupdata:[],
+      categorycontent: []
     },
     mounted () {
       this.carouselobj = carouselList;
@@ -39,6 +40,7 @@ var vueObject = new Vue({
       this.cookieData =  Cookies.getJSON('basketData');
       this.basketList = this.cookieData == undefined ? [] : this.cookieData;
       this.basketpopupdata = this.getBasketData();
+      this.categorycontent = this.getCategoryData();
       setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
@@ -56,6 +58,19 @@ var vueObject = new Vue({
       }, 200);
     },
     methods: {
+      getCategoryData: function () {
+        let catContent = [];
+        for (let list of Object.values(catTitle['cattitle'])) {
+          if (list.id == queryString){
+            let childObject = {};
+            childObject['Title'] = list.Title;
+            childObject['Description'] = list.Description;
+            catContent = childObject;
+          }
+        }
+        return catContent;
+      },
+
       getBasketData: function () {
         let cookieData = this.basketList;
         let objList = [];

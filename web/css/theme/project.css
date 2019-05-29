@@ -57,6 +57,17 @@
 .hide {
   display: block;
 }
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.title {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
 ul li {
   list-style-type: none;
 }
@@ -358,6 +369,19 @@ ul.nav li a.active {
 }
 .plp-products_list:nth-child(3n+1) {
   clear: both;
+}
+.banner-content {
+  background: #294057;
+  float: left;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.banner-content__desc {
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
 .mini-basket {
   position: absolute;

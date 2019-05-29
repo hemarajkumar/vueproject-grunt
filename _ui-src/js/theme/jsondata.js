@@ -6,6 +6,15 @@ var navmenu = {"menulist":[
   {"Title":"Accessories", "id":"cat04"}
 ]}
 
+
+var catTitle = {"cattitle":[
+  {"Title":"Produts Category....",  "Description": "Explore our products ...", "id":"viewall"},
+  {"Title":"Mens Wear Category ....", "Description": "Explore our Mens Wear products ...", "id":"cat01"},
+  {"Title":"Womens Wear Category ....", "Description": "Explore our Womens Wear products ...", "id":"cat02"},
+  {"Title":"Hand Bages Category ....", "Description": "Explore our Hand Bags ...", "id":"cat03"},
+  {"Title":"Accessories Category ....", "Description": "Explore our Accessories  ...", "id":"cat04"}
+]}
+
 var productAdded=[]
 
 var carouselList = {"lists":[

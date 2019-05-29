@@ -24936,6 +24936,15 @@ return Vue;
   {"Title":"Accessories", "id":"cat04"}
 ]}
 
+
+var catTitle = {"cattitle":[
+  {"Title":"Produts Category....",  "Description": "Explore our products ...", "id":"viewall"},
+  {"Title":"Mens Wear Category ....", "Description": "Explore our Mens Wear products ...", "id":"cat01"},
+  {"Title":"Womens Wear Category ....", "Description": "Explore our Womens Wear products ...", "id":"cat02"},
+  {"Title":"Hand Bages Category ....", "Description": "Explore our Hand Bags ...", "id":"cat03"},
+  {"Title":"Accessories Category ....", "Description": "Explore our Accessories  ...", "id":"cat04"}
+]}
+
 var productAdded=[]
 
 var carouselList = {"lists":[
@@ -25087,6 +25096,19 @@ Vue.component('basket-count', {
   props:['basketqtycount']
 })
 
+Vue.component('category-title', {
+  template:"<h1 class=\"title\">" +
+    "{{ categorycontent.Title }}"+
+    "</h1>",
+  props:['categorycontent']
+})
+
+Vue.component('category-description', {
+  template:"<span class=\"banner-content__desc\">" +
+    "{{ categorycontent.Description }}"+
+    "</span>",
+  props:['categorycontent']
+})
 
 Vue.component('carousel-list', {
     template:"<div class='col-xs-12 nopad carousel'>" +
@@ -25169,7 +25191,7 @@ Vue.component('facet-list', {
 Vue.component('basket-popup-list', {
   template:"<div id=\"basketData\" class=\"hide\">" +
   "<div class=\"mini-cart\">"+
-  "<div v-if=\"basketpopupdata.productselected >= 4\" class=\"mini-cart__title\">Showing 4 out of {{basketpopupdata.productselected}}</div>" +
+  "<div v-if=\"basketpopupdata.productselected > 4\" class=\"mini-cart__title\">Showing 4 out of {{basketpopupdata.productselected}}</div>" +
   "<div class=\"minicart__popupcontainer\" v-if='(basketpopupdata.productselected > 0)'>" +
   "<template v-for='(item, key) in basketpopupdata.list'>" +
     "<div v-if='(key < 4)' class=\"mini-cart__order-list\">" +
@@ -25232,7 +25254,8 @@ var vueObject = new Vue({
       facetSelected: [],
       facetoptionselected: [],
       basketList: [],
-      basketpopupdata:[]
+      basketpopupdata:[],
+      categorycontent: []
     },
     mounted () {
       this.carouselobj = carouselList;
@@ -25241,6 +25264,7 @@ var vueObject = new Vue({
       this.cookieData =  Cookies.getJSON('basketData');
       this.basketList = this.cookieData == undefined ? [] : this.cookieData;
       this.basketpopupdata = this.getBasketData();
+      this.categorycontent = this.getCategoryData();
       setTimeout(function(){
         $('.js-homePageCarousel').owlCarousel({
         loop:false,
@@ -25258,6 +25282,19 @@ var vueObject = new Vue({
       }, 200);
     },
     methods: {
+      getCategoryData: function () {
+        let catContent = [];
+        for (let list of Object.values(catTitle['cattitle'])) {
+          if (list.id == queryString){
+            let childObject = {};
+            childObject['Title'] = list.Title;
+            childObject['Description'] = list.Description;
+            catContent = childObject;
+          }
+        }
+        return catContent;
+      },
+
       getBasketData: function () {
         let cookieData = this.basketList;
         let objList = [];

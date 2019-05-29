@@ -13,6 +13,19 @@ Vue.component('basket-count', {
   props:['basketqtycount']
 })
 
+Vue.component('category-title', {
+  template:"<h1 class=\"title\">" +
+    "{{ categorycontent.Title }}"+
+    "</h1>",
+  props:['categorycontent']
+})
+
+Vue.component('category-description', {
+  template:"<span class=\"banner-content__desc\">" +
+    "{{ categorycontent.Description }}"+
+    "</span>",
+  props:['categorycontent']
+})
 
 Vue.component('carousel-list', {
     template:"<div class='col-xs-12 nopad carousel'>" +
@@ -95,7 +108,7 @@ Vue.component('facet-list', {
 Vue.component('basket-popup-list', {
   template:"<div id=\"basketData\" class=\"hide\">" +
   "<div class=\"mini-cart\">"+
-  "<div v-if=\"basketpopupdata.productselected >= 4\" class=\"mini-cart__title\">Showing 4 out of {{basketpopupdata.productselected}}</div>" +
+  "<div v-if=\"basketpopupdata.productselected > 4\" class=\"mini-cart__title\">Showing 4 out of {{basketpopupdata.productselected}}</div>" +
   "<div class=\"minicart__popupcontainer\" v-if='(basketpopupdata.productselected > 0)'>" +
   "<template v-for='(item, key) in basketpopupdata.list'>" +
     "<div v-if='(key < 4)' class=\"mini-cart__order-list\">" +
