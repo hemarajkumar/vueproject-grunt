@@ -18,15 +18,19 @@ ul li{
         &:hover {
             color: #fff;
         }
-        position: relative;
-        left: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: none;
         @media screen and (min-width: 768px) {
+          position: relative;
+          float: left;
           left: 0%;
         }
     }
     .navbar-toggle {
-      float: left;
-      margin-left: 15px;
+      position: absolute;
+      left: 10px;
     }
     .miniCart {
         color:#fff; height:30px; margin-top:20px; width:auto;

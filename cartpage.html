@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"/>
+	<meta HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge,chrome=1"/>
+	<meta name="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"/>
+	<meta name="robots" CONTENT="index,follow"/>
+</footer>
+</head>
+  <script TYPE="text/javascript" SRC="web/js/lodash.min.js"></lodash.min>
+<script>
+_u = _.noConflict(); // lets call ourselves _u
+</script>
+
+<style>
+
+</style>
+
+
+<body class="homepage">
+<header class="navbar navbar-static-top bs-docs-nav" id="menuBlock" role="banner" v-cloak>
+  <div class="container nopad headerNav">
+   <div class="navbar-header nomargin">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand js-category" data-category="all">Home Page</a>
+    </div>
+
+		<nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+				<div class="" v-cloak>
+							<menu-list :menuobj="menuobj"> </menu-list>
+					</div>
+	    </nav>
+
+			<div class="mini-basket" style="">
+				<a id="load-minibasket-popover" data-toggle="popover" class="mini-basket__trolly glyphicon glyphicon-shopping-cart" data-original-title="" title=""></a>
+				<basket-count :basketqtycount="basketqtycount"> </basket-count>
+			</div>
+
+  </div>
+</header>
+
+<div id="vueData" v-cloak>
+	<section>
+		<div class="contentDiv js-cartPage" style="">
+			<div class="row">
+				<div class="col-xs-12">
+						<div class="banner-content"><h1 class="title">Your Basket - This page is static content. Not yet completed</h1></div>
+				</div>
+			</div>
+
+
+<div class="cart__content">
+	<div class="row">
+		<div class="col-lg-8 cart__content-products">
+			<div class="cart__content__header">
+				<h1 class="d-inline-block">My basket</h1>
+				<span>(3 items)</span>
+			</div>
+			<div class="cart__entries">
+				<div class="product-row product-row--cart-page">
+					<div class="product-row__product">
+						<div class="product-row__image">
+							<img src="web/images/shirt2.jpg" />
+						</div>
+						<div class="product-row__content">
+							<div class="product-row__col product-row__desc">
+								<p class="product-row__name"><a href="#">Viking Everyday Copier Paper A4 80gsm White 500 Sheets</a></p>
+							</div>
+							<div class="product-row__col product-row__amounts">
+								<div class="product-row__price-display">
+									<div class="product-row__price" id="price_0">£2.79</div>
+								</div>
+								<div class="product-row__quantity">
+									<input id="quantity_0" type="tel" class="basket-form-control input-width--xsmall" name="quantity" value="1" min="1" max="9999" maxlength="4" data-quantity="true" data-select-content="true" autocomplete="off">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-row__remove-product">
+						<a href="#">Remove</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 cart__summary">
+				<section class="cart__summary-section">
+					<div class="cart__summary__content">
+							<div class="cart__summary__flexLayout">
+								<span class="cart__summary__label">Subtotal</span>
+								<span class="cart__summary__value">£22.27</span>
+							</div>
+							<div class="cart__summary__flexLayout">
+								<span class="cart__summary__label">Delivery Costs</span>
+								<span class="cart__summary__value">£2.90</span>
+							</div>
+							<div class="cart__summary__vat cart__summary__flexLayout">
+								<span class="order-summary-totals__label">VAT</span>
+								<span class="cart__summary__value">£5.04</span>
+							</div>
+							<div class="cart__summary__total cart__summary__flexLayout">
+								<span class="cart__summary__label">Total <span>(incl. VAT)</span></span>
+								<span class="cart__summary__value">£30.21</span>
+							</div>
+					</div>
+				</section>
+		</div>
+	</div>
+</div>
+
+<!--  -->
+
+
+			<!-- div class="container basket-page">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="basket-products__topBtn">
+							<div class="row">
+							<div class="col-xs-6">
+								 <a class="btn btn-primary float-left" href="/">Continue Shopping</a>
+							 </div>
+							 <div class="col-xs-6">
+									 <a href="#" class="btn btn-primary float-right">Proceed to checkout</a>
+							 </div>
+						 </div>
+					</div>
+					</div>
+			 </div>
+
+				<div class="basket-products">
+
+
+					 <div class="row">
+							<div class="col-xs-12">
+								<div class="col-lg-6">
+										<span>Item</span>
+								</div>
+								<div class="col-lg-6">
+									<div class="col-lg-6">
+										<span>Quantity</span>
+									</div>
+									<div class="col-lg-6">
+											<span>Price</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							 <div class="col-xs-12">
+								 <div class="col-lg-6">
+									 <div class="col-xs-4">
+									 <a href="#"><img data-src="https://media.sofa.com/thumbor/unsafe/fit-in/260x135/center/middle/https%3A%2F%2Fmedia.sofa.com%2Fmedias%2F%3Fcontext%3DbWFzdGVyfHJvb3R8MTk2OTI1N3xpbWFnZS9qcGVnfGgwMi9oZWIvODg3MzkyMTgwNjM2Ni5qcGd8NzYxZWI1N2FjMGYxNzBjMzVkMDdlZWJlZGY1MDVmOWY4NjVhZTUwNGI1MWQzNDBkZDEzNTQ1MTZjZDQ2YmE5ZQ" alt="Bluebell 2 Seat Sofa in Lagoon Brushed Linen Cotton" title="Bluebell 2 Seat Sofa in Lagoon Brushed Linen Cotton" class="img-responsive lazy-load" src="https://media.sofa.com/thumbor/unsafe/fit-in/260x135/center/middle/https%3A%2F%2Fmedia.sofa.com%2Fmedias%2F%3Fcontext%3DbWFzdGVyfHJvb3R8MTk2OTI1N3xpbWFnZS9qcGVnfGgwMi9oZWIvODg3MzkyMTgwNjM2Ni5qcGd8NzYxZWI1N2FjMGYxNzBjMzVkMDdlZWJlZGY1MDVmOWY4NjVhZTUwNGI1MWQzNDBkZDEzNTQ1MTZjZDQ2YmE5ZQ" data-loaded="true">
+									 	</a>
+									</div>
+									<div class="col-xs-8">
+								<span>item name</span>
+								 </div>
+								 </div>
+								 <div class="col-lg-6">
+									 <div class="col-lg-6">
+										 <span>Quantity</span>
+									 </div>
+									 <div class="col-lg-6">
+											 <span>Price</span>
+									 </div>
+								 </div>
+							 </div>
+						 </div>
+
+				 </div>
+			 </div -->
+
+
+
+
+			</div>
+		</section>
+		<basket-popup-list :basketpopupdata="basketpopupdata"> </basket-popup-list>
+</div>
+<footer>
+    <script TYPE="text/javascript" SRC="web/js/project-script.js"></script>
+    <link rel="stylesheet" type="text/css" href="web/css/common/plugin.css?v=1">
+    <link rel="stylesheet" type="text/css" href="web/css/theme/project.css?v=1">
+</footer>
+</body>
+</html>

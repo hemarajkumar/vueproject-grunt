@@ -25104,9 +25104,9 @@ Vue.component('category-title', {
 })
 
 Vue.component('category-description', {
-  template:"<span class=\"banner-content__desc\">" +
+  template:"<h2 class=\"banner-content__desc\">" +
     "{{ categorycontent.Description }}"+
-    "</span>",
+    "</h2>",
   props:['categorycontent']
 })
 
@@ -25210,7 +25210,7 @@ Vue.component('basket-popup-list', {
     "</div>" +
   "</template>" +
   "<div class=\"mini-cart__total\">Total: £{{basketpopupdata.total}}</div>" +
-  "<button type=\"button\" class=\"btn btn-primary mini-cart__checkout-button\">Checkout</button>" +
+  "<a v-bind:href=\"'cartpage.html'\" class=\"btn btn-primary mini-cart__checkout-button\">Checkout</a>" +
   "</div>" +
   "<span v-else class=\"mini-cart__emptymessage\">Your Shopping Bag is empty</span>" +
   "</div>" +

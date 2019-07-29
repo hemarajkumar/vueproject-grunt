@@ -2,9 +2,16 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
-       images: ["web/images"]
+       images: ["web/images"],
+       js: ["web/js"]
     },
     copy: {
+        js: {
+          cwd: '_ui-src/js/common/',
+          src: 'lodash.js',
+          dest: 'web/js/',
+          expand: true
+        },
         images: {
           expand: true,
           cwd: '_ui-src/images',
@@ -36,7 +43,7 @@ module.exports = function(grunt) {
     tasks: ['jshint'],
 		less: {
 			files: ["_ui-src/less/*.less"],
-			tasks: ["less"],
+			tasks: ["less", "postcss"],
 			options: {
 				nospawn: true
 			}
@@ -46,7 +53,6 @@ module.exports = function(grunt) {
             '_ui-src/js/common/bootstrap.min.js',
             '_ui-src/js/common/owl.carousel.js',
             '_ui-src/js/common/vue.js',
-            '_ui-src/js/theme/lodash.js',
             '_ui-src/js/theme/cookie.js',
             '_ui-src/js/theme/component.js',
             '_ui-src/js/theme/scripts.js',
@@ -75,12 +81,12 @@ module.exports = function(grunt) {
           ieCompat: false
         },
   			files: {
-  				"web/css/theme/project.css": "_ui-src/less/styles.less"
+  				"web/css/theme/compile.css": "_ui-src/less/styles.less"
   			}
 		}
 	},
 
-    concat: {
+  concat: {
       options: {
         separator: ';',
       },
@@ -101,8 +107,8 @@ module.exports = function(grunt) {
       },
     },
 
-     concat_css: {
-        options: {
+    concat_css: {
+      options: {
           // Task-specific options go here.
         },
         all: {
@@ -110,7 +116,21 @@ module.exports = function(grunt) {
                 "_ui-src/css/common/owl-carousel/*.css"],
           dest: "web/css/common/plugin.css",
         }
+    },
+
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer')({'overrideBrowserslist': ['last 4 version']})
+          //require('cssnano')()
+        ]
+      },
+      dist: {
+        src: 'web/css/theme/compile.css',
+        dest: 'web/css/theme/project.css'
       }
+    }
+    
   });
 
   /** Plugin's */
@@ -121,7 +141,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat-force');
   grunt.loadNpmTasks('grunt-concat-css');
-
-
-  grunt.registerTask('default', ['clean', 'less', 'copy', 'concat', 'concat_css', 'jshint', 'watch']);
+  grunt.loadNpmTasks('grunt-postcss');
+  grunt.registerTask('post-css', ['postcss']);
+  grunt.registerTask('default', ['clean', 'less', 'concat', 'concat_css', 'postcss', 'jshint', 'copy', 'watch']);
 };

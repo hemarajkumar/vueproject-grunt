@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
+    "cssnano": "^4.1.10",
     "grunt": "0.4.5",
     "grunt-concat-sourcemap": "^0.4.3",
     "grunt-contrib-less": "1.0.1",
@@ -13,15 +14,20 @@
     "grunt-sync": "0.0.8",
     "loadash": "^1.0.0",
     "lodash": "^4.17.10",
+    "pixrem": "^5.0.0",
     "plugin": "0.3.3"
   },
   "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnext": "^1.8.4",
     "grunt-concat-css": "^0.3.2",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat-force": "^1.1.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-watch-chokidar": "^1.0.0"
+    "grunt-contrib-watch-chokidar": "^1.0.0",
+    "grunt-postcss": "^0.9.0",
+    "precss": "^4.0.0"
   },
   "scripts": {
     "start": "grunt"
@@ -36,5 +42,11 @@
   "bugs": {
     "url": "https://github.com/hemarajkumar/ecommercehandlebar/issues"
   },
-  "homepage": "https://github.com/hemarajkumar/ecommercehandlebar#readme"
+  "homepage": "https://github.com/hemarajkumar/ecommercehandlebar#readme",
+  "browserslist": [
+    "last 4 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }

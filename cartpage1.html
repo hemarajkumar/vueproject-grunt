@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"/>
+	<meta HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge,chrome=1"/>
+	<meta name="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"/>
+	<meta name="robots" CONTENT="index,follow"/>
+</footer>
+</head>
+<script TYPE="text/javascript" SRC="web/js/lodash.min.js"></lodash.min>
+<script>
+_u = _.noConflict(); // lets call ourselves _u
+</script>
+<!--
+<style>
+.cart__content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.cart__content-products {
+    padding-right: 20px;
+}
+.cart__header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+	 margin-bottom: 1.6rem;
+}
+.cart__header h1 {
+    margin: 0 .5rem 0 0;
+}
+
+.cart__header span {
+    color: grey;
+}
+
+.product-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.product-row__image {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+.product-row__content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-left: 2rem;
+}
+
+.product-row__desc {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-bottom: 0;
+}
+
+.product-row__name {
+    font-weight: 400;
+}
+
+.product-row__amounts {
+    padding-bottom: 0;
+    padding-right: 0;
+    margin-left: 2rem;
+    -webkit-flex-basis: 15rem;
+    -ms-flex-preferred-size: 15rem;
+    flex-basis: 15rem;
+    min-height: 10.1rem;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+}
+.product-row__price-display {
+    text-align: right;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    width: inherit;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+</style -->
+
+<style>
+.cart__content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}content-summary
+
+.cart__content-products {
+    padding-right: 20px;
+}
+.cart-summary-section {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
+    margin-top: 5.2rem;
+    display: inline-block;
+    width: 100%;
+}
+.order-summary-totals {
+    line-height: 1.6;
+}
+.order-summary-totals__value {
+    float: right;
+}
+.order-summary-totals__vat {
+    margin-top: 22px;
+}
+.order-summary-totals__total {
+    margin-top: 9px;
+    padding-top: 6px;
+    border-top: 1px solid #e8e5e1;
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.cart__header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+	 margin-bottom: 1.6rem;
+}
+.cart__header h1 {
+    margin: 0 .5rem 0 0;
+}
+
+cart__header span {
+    color: grey;
+}
+
+.d-inline-block {
+    display: inline-block!important;
+}
+
+
+.product-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.product-row--cart-page:first-child {
+    border-top: 1px solid #e8e5e1;
+}
+.product-row--cart-page, .product-row--order-history, .product-row--order-review {
+    padding: 20px 0;
+    border-bottom: 1px solid #e8e5e1;
+}
+
+.product-row__image {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+
+.product-row__content {
+    margin-left: 3rem;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.product-row__content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-left: 2rem;
+}
+
+.product-row__col {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding-bottom: 0;
+}
+
+.product-row__desc {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-bottom: 0;
+}
+
+.product-row__name {
+    font-weight: 400;
+}
+
+.product-row__amounts {
+    padding-bottom: 0;
+    padding-right: 0;
+    margin-left: 2rem;
+    -webkit-flex-basis: 15rem;
+    -ms-flex-preferred-size: 15rem;
+    flex-basis: 15rem;
+    min-height: 10.1rem;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+.product-row__price-display {
+    text-align: right;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    width: inherit;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+.product-row--cart-page .product-row__price, .product-row--order-history .product-row__price, .product-row--order-review .product-row__price {
+    -webkit-flex-basis: 160px;
+    -webkit-flex-basis: 16rem;
+    -ms-flex-preferred-size: 160px;
+    -ms-flex-preferred-size: 16rem;
+    flex-basis: 160px;
+    flex-basis: 16rem;
+}
+
+.product-row__price {
+    vertical-align: initial;
+    margin-right: 0;
+    line-height: normal;
+    font-size: 1.6rem;
+}
+</style>
+<body class="homepage">
+<header class="navbar navbar-static-top bs-docs-nav" id="menuBlock" role="banner" v-cloak>
+  <div class="container nopad headerNav">
+   <div class="navbar-header nomargin">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand js-category" data-category="all">Home Page</a>
+    </div>
+
+		<nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+				<div class="" v-cloak>
+							<menu-list :menuobj="menuobj"> </menu-list>
+					</div>
+	    </nav>
+
+			<div class="mini-basket" style="">
+				<a id="load-minibasket-popover" data-toggle="popover" class="mini-basket__trolly glyphicon glyphicon-shopping-cart" data-original-title="" title=""></a>
+				<basket-count :basketqtycount="basketqtycount"> </basket-count>
+			</div>
+
+  </div>
+</header>
+<div id="vueData" v-cloak>
+
+	<section>
+		<div class="contentDiv js-cartPage" style="">
+			<div class="row">
+				<div class="col-xs-12">
+						<div class="banner-content"><h1 class="title">Your Basket</h1></div>
+				</div>
+			</div>
+
+			<div class="row" style="background-color: #ccc; width: 1400px; margin: 20px auto; ">
+				<div class="col-xs-12">
+					<div class="cart__content">
+							<div class="col-lg-8 cart__content-products">
+								<div class="cart__header">
+									<h1 class="d-inline-block">My basket</h1>
+									<span>(3 items)</span>
+								</div>
+								<div class="cart__entries">
+									<div class="product-row">
+										<div class="product-row__image">
+												<img src="web/images/shirt2.jpg" />
+										</div>
+										<div class="product-row__content">
+											<div class="product-row__col product-row__desc">
+												<p class="product-row__name"><a href="#">Viking Everyday Copier Paper A4 80gsm White 500 Sheets</a></p>
+											</div>
+											<div class="product-row__col product-row__amounts">
+												<div class="product-row__price-display">
+													<div class="product-row__price" id="price_0">£2.79</div>
+												</div>
+												<div class="product-row__quantity">
+													<input id="quantity_0" type="tel" class="basket-form-control input-width--xsmall" name="quantity" value="1" min="1" max="9999" maxlength="4" data-quantity="true" data-select-content="true" autocomplete="off">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 cart__content-summary">
+
+							</div>
+					</div>
+				</div>
+			</div>
+
+			</div>
+		</section>
+		<basket-popup-list :basketpopupdata="basketpopupdata"> </basket-popup-list>
+</div>
+<footer>
+    <script TYPE="text/javascript" SRC="web/js/project-script.js"></script>
+    <link rel="stylesheet" type="text/css" href="web/css/common/plugin.css?v=1">
+    <link rel="stylesheet" type="text/css" href="web/css/theme/project.css?v=1">
+</footer>
+</body>
+</html>
