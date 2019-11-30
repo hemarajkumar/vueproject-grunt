@@ -4,7 +4,7 @@
 	<meta HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge,chrome=1"/>
 	<meta name="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"/>
 	<meta name="robots" CONTENT="index,follow"/>
-</footer>
+	<link rel="icon" type="image/png" href="/" />
 </head>
   <script TYPE="text/javascript" SRC="web/js/lodash.js"></script>
 <script>
@@ -25,11 +25,11 @@ _u = _.noConflict(); // lets call ourselves _u
 
 		<nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 				<div class="" v-cloak>
-							<menu-list :menuobj="menuobj"> </menu-list>
+							<menu-list :menuobj="menuobj" />
 					</div>
 	    </nav>
 
-			<div class="mini-basket" style="">
+			<div class="mini-basket">
 				<a id="load-minibasket-popover" data-toggle="popover" class="mini-basket__trolly glyphicon glyphicon-shopping-cart" data-original-title="" title=""></a>
 				<basket-count :basketqtycount="basketqtycount"> </basket-count>
 			</div>
@@ -38,7 +38,7 @@ _u = _.noConflict(); // lets call ourselves _u
 </header>
 <div id="vueData" v-cloak>
 		<section>
-			<div class="contentDiv js-productListing" style="">
+			<div class="contentDiv js-productListing">
 
 		 	<div class="row">
 				<div class="col-xs-12">
@@ -56,7 +56,7 @@ _u = _.noConflict(); // lets call ourselves _u
 								<div class="col-lg-2 col-md-3 col-sm-12">
 									<div class="row">
 											<div class="plp-facets" v-cloak>
-												<facet-list :facetlistobj="facetlistobj"> </facet-list>
+												<facet-list :facetlistobj="facetlistobj" />
 											</div>
 									</div>
 								</div>
@@ -69,7 +69,7 @@ _u = _.noConflict(); // lets call ourselves _u
 										</select>
 									</div>
 									<div v-cloak>
-									<product-list :plplistobj="plplistobj"> </product-list>
+									<product-list :plplistobj="plplistobj" />
 								  </div>
 								</div>
 							</div>
@@ -77,7 +77,7 @@ _u = _.noConflict(); // lets call ourselves _u
 				</div>
 			</div>
 	  </section>
-		<basket-popup-list :basketpopupdata="basketpopupdata"> </basket-popup-list>
+		<basket-popup-list :basketpopupdata="basketpopupdata" />
 </div>
 <footer>
     <script TYPE="text/javascript" SRC="web/js/project-script.js"></script>

@@ -3,7 +3,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     clean: {
        images: ["web/images"],
-       js: ["web/js"]
+       js: ["web/js"],
+       fonts: ["web/fonts"]
     },
     copy: {
         js: {
@@ -17,6 +18,12 @@ module.exports = function(grunt) {
           cwd: '_ui-src/images',
           src:'**/*',
           dest: 'web/images/'
+        },
+        fonts: {
+          expand: true,
+          cwd: '_ui-src/fonts',
+          src:'**/*',
+          dest: 'web/css/fonts'
         }
     },
 

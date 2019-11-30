@@ -4,9 +4,9 @@
 	<meta HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge,chrome=1"/>
 	<meta name="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"/>
 	<meta name="robots" CONTENT="index,follow"/>
-</footer>
+	<link rel="icon" type="image/png" href="/" />
 </head>
-  <script TYPE="text/javascript" SRC="web/js/lodash.min.js"></lodash.min>
+  <script TYPE="text/javascript" SRC="web/js/lodash.js"></script>
 <script>
 _u = _.noConflict(); // lets call ourselves _u
 </script>
@@ -31,13 +31,13 @@ _u = _.noConflict(); // lets call ourselves _u
 
 		<nav id="bs-navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 				<div class="" v-cloak>
-							<menu-list :menuobj="menuobj"> </menu-list>
-					</div>
+					<menu-list :menuobj="menuobj" />
+				</div>
 	    </nav>
 
-			<div class="mini-basket" style="">
+			<div class="mini-basket">
 				<a id="load-minibasket-popover" data-toggle="popover" class="mini-basket__trolly glyphicon glyphicon-shopping-cart" data-original-title="" title=""></a>
-				<basket-count :basketqtycount="basketqtycount"> </basket-count>
+				<basket-count :basketqtycount="basketqtycount" />
 			</div>
 
   </div>
@@ -45,7 +45,7 @@ _u = _.noConflict(); // lets call ourselves _u
 
 <div id="vueData" v-cloak>
 	<section>
-		<div class="contentDiv js-cartPage" style="">
+		<div class="contentDiv js-cartPage">
 			<div class="row">
 				<div class="col-xs-12">
 						<div class="banner-content"><h1 class="title">Your Basket - This page is static content. Not yet completed</h1></div>
